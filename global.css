@@ -1,0 +1,105 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+body {
+    font-family: var(--font-family);
+
+    background-color: var(--color-background);
+
+    color: var(--color-text);
+
+    font-size: var(--font-body);
+
+    font-weight: var(--weight-regular);
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.container {
+    width: min(
+        calc(100% - 48px),
+        var(--container-width)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+h1 {
+    font-size: var(--font-h1);
+    line-height: 1.2;
+    font-weight: var(--weight-bold);
+}
+
+
+h2 {
+    font-size: var(--font-h2);
+    line-height: 1.3;
+    font-weight: var(--weight-semibold);
+}
+
+
+h3 {
+    font-size: var(--font-h3);
+    line-height: 1.3;
+    font-weight: var(--weight-bold);
+}
+
+
+p {
+    font-size: var(--font-body);
+    line-height: 1.5;
+}
+
+
+small {
+    font-size: var(--font-small);
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   SELECCIÓN DE TEXTO
+========================================= */
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
