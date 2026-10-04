@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Noticias | Diccionario Marítimo & Logístico
+    </title>
+
+
+    <!-- ======================================
+         ESTILOS
+         ====================================== -->
+
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <link rel="stylesheet" href="../css/variables.css">
+
+    <link rel="stylesheet" href="../css/global.css">
+
+    <link rel="stylesheet" href="../css/components.css">
+
+    <link rel="stylesheet" href="../css/pages.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================
+     HEADER
+     ====================================== -->
+
+    <header class="site-header news-site-header">
+
+        <div class="container header-container">
+
+            <!-- LOGO -->
+            <a href="../index.html" class="logo" aria-label="Ir al inicio">
+                <img src="../assets/images/logo/isotipo-sanmateo-blanco.png" alt="San Mateo">
+            </a>
+
+
+            <!-- BUSCADOR DE TÉRMINOS -->
+            <div class="news-header-search">
+
+                <form class="search-box" id="newsSearchForm">
+
+                    <div class="news-search__input-wrapper">
+
+                        <span class="news-search__icon" aria-hidden="true"></span>
+
+                        <input type="search" id="newsSearch" placeholder="Buscar término" autocomplete="off"
+                            aria-label="Buscar término">
+
+                        <button type="button" id="newsSearchClear" class="news-search__clear"
+                            aria-label="Limpiar búsqueda">
+                            ×
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <div id="newsSearchSuggestions" class="news-search-suggestions" aria-hidden="true"></div>
+
+            </div>
+
+
+            <!-- NAVEGACIÓN -->
+            <nav class="main-nav">
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="catalogo.html">
+                            Categorías
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="noticias.html" class="active">
+                            Noticias
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ======================================
+         CONTENIDO PRINCIPAL
+         ====================================== -->
+
+    <main class="news-page">
+
+        <div class="container">
+
+
+            <!-- ==================================
+                 ENCABEZADO DE NOTICIAS
+                 ================================== -->
+
+            <section class="news-header">
+
+
+                <!-- VOLVER -->
+
+                <a href="../index.html" class="news-back">
+                    ← Volver al menú
+                </a>
+
+
+                <!-- CERRAR -->
+
+                <a href="../index.html" class="news-close" aria-label="Cerrar">
+                    ×
+                </a>
+
+
+                <!-- TÍTULO -->
+
+                <h1>
+                    Noticias
+                </h1>
+
+
+                <p>
+                    Consulta fuentes de información
+                    relacionadas con los negocios
+                    internacionales, el comercio,
+                    la logística y el transporte marítimo.
+                </p>
+
+            </section>
+
+
+
+            <!-- ======================================
+                 TARJETAS DE NOTICIAS
+                 ====================================== -->
+
+            <section class="news-grid">
+
+
+                <!-- ==================================
+                     1. LA REPÚBLICA
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+
+                        <img src="../assets/images/noticias/la-republica.jpg"
+                            alt="La República - Comercio Internacional">
+
+                    </div>
+
+
+                    <!-- CONTENIDO -->
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            La República
+                        </span>
+
+
+                        <h2>
+                            Comercio Internacional
+                        </h2>
+
+
+                        <p>
+                            Noticias y actualidad relacionada
+                            con el comercio internacional.
+                        </p>
+
+
+                        <a href="https://www.larepublica.co/comercio-internacional" target="_blank"
+                            rel="noopener noreferrer" class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     2. MINCIT
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/mincit.webp" alt="MinCIT - Comercio">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            MinCIT
+                        </span>
+
+
+                        <h2>
+                            Comercio
+                        </h2>
+
+
+                        <p>
+                            Información y noticias
+                            relacionadas con el comercio.
+                        </p>
+
+
+                        <a href="https://www.mincit.gov.co/prensa/noticias/comercio" target="_blank"
+                            rel="noopener noreferrer" class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     3. PORTAFOLIO
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/portafolio.webp" alt="Portafolio - Internacional">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            Portafolio
+                        </span>
+
+
+                        <h2>
+                            Internacional
+                        </h2>
+
+
+                        <p>
+                            Noticias y actualidad
+                            del ámbito internacional.
+                        </p>
+
+
+                        <a href="https://www.portafolio.co/internacional" target="_blank" rel="noopener noreferrer"
+                            class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     4. UNCTAD
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/unctad.jpg" alt="UNCTAD">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            UNCTAD
+                        </span>
+
+
+                        <h2>
+                            Comercio y desarrollo
+                        </h2>
+
+
+                        <p>
+                            Información internacional sobre
+                            comercio, desarrollo y economía.
+                        </p>
+
+
+                        <a href="https://unctad.org/es" target="_blank" rel="noopener noreferrer"
+                            class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     5. DIAN
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/dian.jpg" alt="DIAN - Noticias">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            DIAN
+                        </span>
+
+
+                        <h2>
+                            Noticias
+                        </h2>
+
+
+                        <p>
+                            Información y novedades de la
+                            Dirección de Impuestos y Aduanas.
+                        </p>
+
+
+                        <a href="https://www.dian.gov.co/Prensa/Paginas/Noticias.aspx" target="_blank"
+                            rel="noopener noreferrer" class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     6. ASUNTOS LEGALES
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/asuntos-legales.webp" alt="Asuntos Legales - Aduana">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            Asuntos Legales
+                        </span>
+
+
+                        <h2>
+                            Aduana
+                        </h2>
+
+
+                        <p>
+                            Información y actualidad
+                            relacionada con asuntos aduaneros.
+                        </p>
+
+
+                        <a href="https://www.asuntoslegales.com.co/aduana" target="_blank" rel="noopener noreferrer"
+                            class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     7. THE MARITIME EXECUTIVE
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/maritime-executive.avif" alt="The Maritime Executive">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            The Maritime Executive
+                        </span>
+
+
+                        <h2>
+                            Noticias marítimas
+                        </h2>
+
+
+                        <p>
+                            Actualidad y noticias
+                            de la industria marítima.
+                        </p>
+
+
+                        <a href="https://maritime-executive.com/" target="_blank" rel="noopener noreferrer"
+                            class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==================================
+                     8. CEPAL
+                     ================================== -->
+
+                <article class="news-card">
+
+
+                    <!-- ESPACIO PARA IMAGEN -->
+
+                    <div class="news-card__image">
+                        <img src="../assets/images/noticias/cepal.jpg" alt="CEPAL - Transporte marítimo y puertos">
+                    </div>
+
+
+                    <div class="news-card__content">
+
+                        <span class="news-card__source">
+                            CEPAL
+                        </span>
+
+
+                        <h2>
+                            Transporte marítimo y puertos
+                        </h2>
+
+
+                        <p>
+                            Información sobre transporte
+                            marítimo, puertos y desarrollo regional.
+                        </p>
+
+
+                        <a href="https://www.cepal.org/es/temas/transporte-maritimo-puertos" target="_blank"
+                            rel="noopener noreferrer" class="news-card__link">
+                            Ir al sitio →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ======================================
+         FOOTER
+         ====================================== -->
+
+    <!-- ==========================================
+     FOOTER
+========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="site-footer__main">
+
+            <!-- Decoración -->
+            <div class="site-footer__globe" aria-hidden="true"></div>
+
+            <div class="site-footer__container">
+
+                <!-- ==================================
+                 COLUMNA INSTITUCIONAL
+            ================================== -->
+
+                <div class="site-footer__brand">
+
+                    <!-- ESPACIO PARA EL LOGO -->
+                    <div class="site-footer__logo">
+                        <img src="../assets/images/logo/logo-sanmateo.png" alt="Fundación Universitaria San Mateo">
+                    </div>
+
+                    <div class="site-footer__separator"></div>
+
+                    <h3>Diccionario de Negocios Internacionales</h3>
+
+                    <p>
+                        Un recurso académico para explorar términos clave
+                        del comercio internacional, el transporte marítimo
+                        y la logística global.
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================
+                 EXPLORAR
+            ================================== -->
+
+                <nav class="site-footer__column" aria-label="Explorar">
+
+                    <h4>EXPLORAR</h4>
+
+                    <span class="site-footer__heading-line"></span>
+
+                    <a href="../index.html">Inicio</a>
+
+                    <a href="catalogo.html">Categorías</a>
+
+                    <a href="noticias.html">Noticias</a>
+
+                </nav>
+
+
+                <!-- ==================================
+                 INFORMACIÓN
+            ================================== -->
+
+                <nav class="site-footer__column" aria-label="Información">
+
+                    <h4>INFORMACIÓN</h4>
+
+                    <span class="site-footer__heading-line"></span>
+
+                    <!--
+                    Este apartado se desarrollará después.
+                -->
+
+                    <a href="#" class="site-footer__credits">
+                        Créditos
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+         BARRA INFERIOR
+    ========================================== -->
+
+        <div class="site-footer__bottom">
+
+            <div class="site-footer__bottom-container">
+
+                <div class="site-footer__bottom-left">
+
+                    <span>
+                        © 2026 Diccionario de Negocios Internacionales
+                    </span>
+
+                    <span class="site-footer__bottom-divider"></span>
+
+                    <span>
+                        Proyecto académico
+                    </span>
+
+                </div>
+
+
+                <div class="site-footer__bottom-right">
+
+                    <span>
+                        Fundación Universitaria San Mateo
+                    </span>
+
+                    <span class="site-footer__bottom-divider"></span>
+
+                    <span>
+                        Vigilada Mineducación
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ======================================
+         JAVASCRIPT
+         ====================================== -->
+
+    <script src="../js/data.js"></script>
+
+    <script src="../js/filters.js"></script>
+
+    <script src="../js/noticias.js"></script>
+
+
+</body>
+
+</html>

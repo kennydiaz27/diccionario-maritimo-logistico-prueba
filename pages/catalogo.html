@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Catálogo | Diccionario de Negocios Internacionales</title>
+
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <link rel="stylesheet" href="../css/global.css">
+
+    <link rel="stylesheet" href="../css/components.css">
+
+    <link rel="stylesheet" href="../css/pages.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <a href="../index.html" class="logo" aria-label="Ir al inicio">
+                <img src="../assets/images/logo/isotipo-sanmateo-blanco.png" alt="San Mateo">
+            </a>
+
+            <nav class="main-navigation">
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="catalogo.html" class="active">
+                            Categorías
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="noticias.html">
+                            Noticias
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+
+    <main class="catalog-page">
+
+        <div class="container">
+
+
+            <!-- CABECERA -->
+
+            <section class="catalog-header">
+
+                <h1>
+                    Categorías
+                </h1>
+
+                <p>
+                    Explora términos relacionados con los
+                    negocios internacionales, el transporte
+                    marítimo, la logística y las principales
+                    siglas y abreviaturas del sector.
+                </p>
+
+            </section>
+
+
+            <!-- BUSCADOR -->
+
+            <section class="catalog-search">
+
+                <form class="search-box" id="catalogSearchForm">
+
+                    <input type="search" id="catalogSearch"
+                        placeholder="Busca por término, traducción, sigla o palabra clave..." autocomplete="off">
+
+                    <button type="submit">
+                        Buscar
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- CATEGORÍAS -->
+
+            <section class="category-selector">
+
+                <button class="category-button active" data-category="all">
+                    Todos
+                </button>
+
+                <button class="category-button" data-category="Transporte Marítimo">
+                    Transporte Marítimo
+                </button>
+
+                <button class="category-button" data-category="Logística Internacional">
+                    Logística Internacional
+                </button>
+
+                <button class="category-button" data-category="Siglas y Abreviaturas">
+                    Siglas y Abreviaturas
+                </button>
+
+            </section>
+
+
+            <!-- FILTROS -->
+
+            <section class="filters-panel">
+
+                <div class="filters-grid">
+
+
+                    <div class="filter-group">
+
+                        <label>
+                            Nivel de dificultad
+                        </label>
+
+                        <div class="level-menu" id="levelMenu">
+
+                            <!-- BOTÓN PRINCIPAL -->
+
+                            <button type="button" class="level-trigger" id="levelTrigger">
+
+                                <span id="levelSelected">
+                                    Todos los niveles
+                                </span>
+
+                                <span class="level-arrow">
+                                    ▼
+                                </span>
+
+                            </button>
+
+
+                            <!-- MENÚ DESPLEGABLE -->
+
+                            <div class="level-dropdown" id="levelDropdown">
+
+                                <button type="button" class="level-option active" data-level="all">
+                                    Todos los niveles
+                                </button>
+
+                                <button type="button" class="level-option" data-level="Básico">
+                                    Básico
+                                </button>
+
+                                <button type="button" class="level-option" data-level="Intermedio">
+                                    Intermedio
+                                </button>
+
+                                <button type="button" class="level-option" data-level="Avanzado">
+                                    Avanzado
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="filter-group">
+
+                        <label>Subcategoría</label>
+
+                        <div class="subcategory-menu" id="subcategoryMenu">
+
+                            <!-- Botón principal -->
+                            <button type="button" class="subcategory-trigger" id="subcategoryTrigger">
+                                <span id="subcategorySelected">
+                                    Todas las subcategorías
+                                </span>
+
+                                <span class="subcategory-arrow">
+                                    ▼
+                                </span>
+                            </button>
+
+
+                            <!-- Menú desplegable -->
+                            <div class="subcategory-dropdown" id="subcategoryDropdown">
+
+                                <!-- COLUMNA DE CATEGORÍAS -->
+                                <div class="subcategory-categories">
+
+                                    <button type="button" class="subcategory-category"
+                                        data-category="Transporte Marítimo">
+                                        <span>
+                                            Transporte Marítimo
+                                        </span>
+
+                                        <span>
+                                            ›
+                                        </span>
+                                    </button>
+
+
+                                    <button type="button" class="subcategory-category"
+                                        data-category="Logística Internacional">
+                                        <span>
+                                            Logística Internacional
+                                        </span>
+
+                                        <span>
+                                            ›
+                                        </span>
+                                    </button>
+
+
+                                    <button type="button" class="subcategory-category"
+                                        data-category="Siglas y Abreviaturas">
+                                        <span>
+                                            Siglas y Abreviaturas
+                                        </span>
+
+                                        <span>
+                                            ›
+                                        </span>
+                                    </button>
+
+                                </div>
+
+
+                                <!-- COLUMNA DE SUBCATEGORÍAS -->
+                                <div class="subcategory-options" id="subcategoryOptions">
+
+                                    <div class="subcategory-placeholder">
+
+                                        Selecciona una categoría
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- A-Z -->
+
+                <div class="alphabet-filter">
+
+                    <button class="letter-button active" data-letter="all">
+                        Todos
+                    </button>
+
+                    <button class="letter-button" data-letter="A">A</button>
+                    <button class="letter-button" data-letter="B">B</button>
+                    <button class="letter-button" data-letter="C">C</button>
+                    <button class="letter-button" data-letter="D">D</button>
+                    <button class="letter-button" data-letter="E">E</button>
+                    <button class="letter-button" data-letter="F">F</button>
+                    <button class="letter-button" data-letter="G">G</button>
+                    <button class="letter-button" data-letter="H">H</button>
+                    <button class="letter-button" data-letter="I">I</button>
+                    <button class="letter-button" data-letter="J">J</button>
+                    <button class="letter-button" data-letter="K">K</button>
+                    <button class="letter-button" data-letter="L">L</button>
+                    <button class="letter-button" data-letter="M">M</button>
+                    <button class="letter-button" data-letter="N">N</button>
+                    <button class="letter-button" data-letter="O">O</button>
+                    <button class="letter-button" data-letter="P">P</button>
+                    <button class="letter-button" data-letter="Q">Q</button>
+                    <button class="letter-button" data-letter="R">R</button>
+                    <button class="letter-button" data-letter="S">S</button>
+                    <button class="letter-button" data-letter="T">T</button>
+                    <button class="letter-button" data-letter="U">U</button>
+                    <button class="letter-button" data-letter="V">V</button>
+                    <button class="letter-button" data-letter="W">W</button>
+                    <button class="letter-button" data-letter="X">X</button>
+                    <button class="letter-button" data-letter="Y">Y</button>
+                    <button class="letter-button" data-letter="Z">Z</button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULTADOS -->
+
+            <section>
+
+                <div class="results-header">
+
+                    <h2>
+                        Términos
+                    </h2>
+
+                    <span class="results-count" id="resultsCount">
+                        Cargando...
+                    </span>
+
+                </div>
+
+
+                <div class="term-grid" id="termGrid">
+
+                    <!--
+                        Los términos serán generados
+                        automáticamente mediante JavaScript.
+                    -->
+
+                </div>
+
+
+                <div class="pagination" id="pagination">
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+
+    <!-- ==========================================
+     FOOTER
+========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="site-footer__main">
+
+            <!-- Decoración -->
+            <div class="site-footer__globe" aria-hidden="true"></div>
+
+            <div class="site-footer__container">
+
+                <!-- ==================================
+                 COLUMNA INSTITUCIONAL
+            ================================== -->
+
+                <div class="site-footer__brand">
+
+                    <!-- ESPACIO PARA EL LOGO -->
+                    <div class="site-footer__logo">
+                        <img src="../assets/images/logo/logo-sanmateo.png" alt="Fundación Universitaria San Mateo">
+                    </div>
+
+                    <div class="site-footer__separator"></div>
+
+                    <h3>Diccionario de Negocios Internacionales</h3>
+
+                    <p>
+                        Un recurso académico para explorar términos clave
+                        del comercio internacional, el transporte marítimo
+                        y la logística global.
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================
+                 EXPLORAR
+            ================================== -->
+
+                <nav class="site-footer__column" aria-label="Explorar">
+
+                    <h4>EXPLORAR</h4>
+
+                    <span class="site-footer__heading-line"></span>
+
+                    <a href="../index.html">Inicio</a>
+
+                    <a href="catalogo.html">Categorías</a>
+
+                    <a href="noticias.html">Noticias</a>
+
+                </nav>
+
+
+                <!-- ==================================
+                 INFORMACIÓN
+            ================================== -->
+
+                <nav class="site-footer__column" aria-label="Información">
+
+                    <h4>INFORMACIÓN</h4>
+
+                    <span class="site-footer__heading-line"></span>
+
+                    <!--
+                    Este apartado se desarrollará después.
+                -->
+
+                    <a href="#" class="site-footer__credits">
+                        Créditos
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+         BARRA INFERIOR
+    ========================================== -->
+
+        <div class="site-footer__bottom">
+
+            <div class="site-footer__bottom-container">
+
+                <div class="site-footer__bottom-left">
+
+                    <span>
+                        © 2026 Diccionario de Negocios Internacionales
+                    </span>
+
+                    <span class="site-footer__bottom-divider"></span>
+
+                    <span>
+                        Proyecto académico
+                    </span>
+
+                </div>
+
+
+                <div class="site-footer__bottom-right">
+
+                    <span>
+                        Fundación Universitaria San Mateo
+                    </span>
+
+                    <span class="site-footer__bottom-divider"></span>
+
+                    <span>
+                        Vigilada Mineducación
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/data.js"></script>
+
+    <script src="../js/filters.js"></script>
+
+    <script src="../js/modal.js"></script>
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

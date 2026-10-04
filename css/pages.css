@@ -1,0 +1,3876 @@
+/* =========================================
+   PÁGINAS
+========================================= */
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-page {
+    min-height: calc(100vh - 82px);
+}
+
+
+/* =========================================
+   CATÁLOGO
+========================================= */
+
+.catalog-page {
+    min-height: calc(100vh - 82px);
+
+    padding: var(--space-xxl) 0;
+}
+
+
+/* =========================================
+   DETALLE DE TÉRMINO
+========================================= */
+
+.term-detail {
+    min-height: calc(100vh - 82px);
+
+    padding: 40px 0 64px;
+}
+
+
+.detail-container {
+    width: min(calc(100% - 48px),
+            var(--container-width));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   NOTICIAS
+========================================= */
+
+.news-page {
+
+    min-height: calc(100vh - 82px);
+
+    padding: 40px 0 70px;
+
+}
+
+
+/* =========================================
+   HEADER EXCLUSIVO DE NOTICIAS
+========================================= */
+
+.news-site-header .header-container {
+
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.news-site-header .logo {
+
+    flex: 0 0 auto;
+
+}
+
+
+.news-site-header .main-nav {
+
+    flex: 0 0 auto;
+
+    width: auto;
+
+    margin-left: 0;
+}
+
+
+.news-site-header .main-nav ul {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 24px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.news-site-header .main-nav a {
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   ENCABEZADO DE NOTICIAS
+========================================= */
+
+.news-header {
+
+    position: relative;
+
+    margin-bottom: 34px;
+
+}
+
+
+.news-back {
+
+    display: inline-block;
+
+    margin-bottom: 24px;
+
+    color: var(--color-primary);
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+}
+
+
+.news-back:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   BOTÓN CERRAR
+========================================= */
+
+.news-close {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid var(--color-primary);
+
+    border-radius: 50%;
+
+    color: var(--color-primary);
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+}
+
+
+.news-close:hover {
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.news-header h1 {
+
+    margin: 0 0 10px;
+
+    color: var(--color-dark);
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+}
+
+
+.news-header p {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    color: #555b6e;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   CUADRÍCULA DE NOTICIAS
+========================================= */
+
+.news-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+
+}
+
+
+/* =========================================
+   TARJETA
+========================================= */
+
+.news-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    min-width: 0;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.news-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* =========================================
+   IMAGEN
+========================================= */
+
+.news-card__image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 180px;
+
+    overflow: hidden;
+
+    background: #e8e8e8;
+
+}
+
+
+/* Imagen real cuando la agregues */
+
+.news-card__image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================
+   PLACEHOLDER DE IMAGEN
+========================================= */
+
+.news-image-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #8a8a8a;
+
+    background: #e8e8e8;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================
+   CONTENIDO DE LA TARJETA
+========================================= */
+
+.news-card__content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 18px;
+
+}
+
+
+/* =========================================
+   FUENTE
+========================================= */
+
+.news-card__source {
+
+    display: inline-flex;
+
+    align-self: flex-start;
+
+    margin-bottom: 12px;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: var(--color-dark);
+
+    color: var(--color-white);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    line-height: 1.2;
+
+}
+
+
+/* =========================================
+   TÍTULO DE LA TARJETA
+========================================= */
+
+.news-card h2 {
+
+    margin: 0 0 8px;
+
+    color: var(--color-dark);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+.news-card p {
+
+    margin: 0 0 18px;
+
+    color: #666b7a;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+}
+
+
+/* =========================================
+   ENLACE
+========================================= */
+
+.news-card__link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-top: auto;
+
+    color: var(--color-primary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+.news-card__link:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET GRANDE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .news-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .header-container {
+
+        flex-wrap: wrap;
+
+        padding: 16px 0;
+
+    }
+
+
+    .header-search {
+
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+
+    }
+
+
+    .main-navigation {
+
+        margin-left: auto;
+
+    }
+
+
+    /* Noticias */
+
+    .news-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .news-site-header .main-nav ul {
+
+        gap: 16px;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+    .header-container {
+
+        width: min(calc(100% - 32px),
+                var(--container-width));
+
+    }
+
+
+    .main-navigation {
+
+        gap: 12px;
+
+    }
+
+
+    .main-navigation a {
+
+        font-size: 12px;
+
+    }
+
+
+    .detail-container {
+
+        width: calc(100% - 32px);
+
+    }
+
+
+    /* Noticias */
+
+    .news-page {
+
+        padding: 28px 0 50px;
+
+    }
+
+
+    .news-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .news-header h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .news-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .news-close {
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 21px;
+
+    }
+
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL DEL HOME
+========================================= */
+
+.home-page {
+    min-height: calc(100vh - 82px);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.home-hero {
+
+    position: relative;
+
+    min-height: calc(100vh - 82px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 70px 24px;
+
+    background:
+        radial-gradient(circle at 50% 45%,
+            rgba(0, 93, 229, 0.30),
+            transparent 42%),
+        linear-gradient(135deg,
+            #101832 0%,
+            #172b4d 45%,
+            #0c1830 100%);
+
+}
+
+
+
+/* =========================================
+   CAPA OSCURA SOBRE EL FONDO
+========================================= */
+
+.home-hero__overlay {
+
+    display: none;
+
+}
+
+
+/* =========================================
+   CONTENIDO DEL HERO
+========================================= */
+
+.home-hero__content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%,
+            1000px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   TÍTULO PRINCIPAL
+========================================= */
+
+.home-hero h1 {
+
+    max-width: 900px;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(42px,
+            5vw,
+            68px);
+
+    font-weight: 700;
+
+    line-height: 1.08;
+
+    letter-spacing: -1px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================
+   SUBTÍTULO
+========================================= */
+
+.home-hero__subtitle {
+
+    margin: 22px 0 42px;
+
+    color: #ffffff;
+
+    font-size: clamp(16px,
+            2vw,
+            24px);
+
+    font-weight: 500;
+
+    line-height: 1.45;
+
+}
+
+
+/* =========================================
+   BUSCADOR PRINCIPAL
+========================================= */
+
+.home-search {
+
+    position: relative;
+
+    width: min(100%,
+            900px);
+
+    z-index: 20;
+
+}
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+.home-search__form {
+
+    display: flex;
+
+    width: 100%;
+
+    height: 62px;
+
+    background: #ffffff;
+
+    border: 2px solid #d4d4d4;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.20);
+
+}
+
+
+/* =========================================
+   CONTENEDOR DEL INPUT
+========================================= */
+
+.home-search__input-wrapper {
+
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =========================================
+   ICONO
+========================================= */
+
+.home-search__icon {
+    position: relative;
+
+    flex: 0 0 20px;
+
+    width: 20px;
+    height: 20px;
+
+    margin-left: 22px;
+    margin-right: 24px;
+
+    border: 2px solid #555555;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+.home-search__icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 2px;
+
+    right: -7px;
+    bottom: -4px;
+
+    background: #555555;
+
+    border-radius: 2px;
+
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.home-search__input {
+
+    width: 100%;
+
+    height: 100%;
+
+    padding: 0 48px 0 0;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--color-dark);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 20px;
+
+}
+
+
+.home-search__input::placeholder {
+
+    color: #777777;
+
+    opacity: 1;
+
+}
+
+
+/* =========================================
+   BOTÓN LIMPIAR — X AZUL
+========================================= */
+
+.home-search__clear {
+
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    width: 34px;
+    min-width: 34px;
+    max-width: 34px;
+
+    height: 34px;
+    min-height: 34px;
+    max-height: 34px;
+
+    flex: 0 0 34px;
+
+    transform: translateY(-50%);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================
+   MOSTRAR X CUANDO HAY TEXTO
+========================================= */
+
+.home-search__clear.is-visible {
+
+    display: flex;
+
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.home-search__clear:hover {
+
+    background: var(--color-primary-hover);
+
+}
+
+/* =========================================
+   RECOMENDACIONES DEL BUSCADOR
+========================================= */
+
+.home-search__suggestions {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 0;
+
+    width: 100%;
+
+    max-height: 360px;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border: 1px solid #d4d4d4;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+
+    text-align: left;
+
+    z-index: 50;
+
+}
+
+
+/* =========================================
+   CADA RECOMENDACIÓN
+========================================= */
+
+.home-search-suggestion {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border: 0;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    background: #ffffff;
+
+    color: var(--color-dark);
+
+    font-family: "Montserrat", sans-serif;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease;
+
+}
+
+
+.home-search-suggestion:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.home-search-suggestion:hover {
+
+    background: #f5f8ff;
+
+}
+
+
+/* =========================================
+   INFORMACIÓN DEL TÉRMINO
+========================================= */
+
+.home-search-suggestion__info {
+
+    min-width: 0;
+
+}
+
+
+.home-search-suggestion__term {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--color-dark);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.home-search-suggestion__english {
+
+    display: block;
+
+    overflow: hidden;
+
+    color: #777777;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   NIVEL DE LA RECOMENDACIÓN
+========================================= */
+
+.home-search-suggestion__level {
+
+    flex: 0 0 auto;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* BÁSICO */
+
+.home-search-suggestion__level--basic {
+
+    background: #008100;
+
+}
+
+
+/* INTERMEDIO */
+
+.home-search-suggestion__level--intermediate {
+
+    background: #C99840;
+
+}
+
+
+/* AVANZADO */
+
+.home-search-suggestion__level--advanced {
+
+    background: #8630E3;
+
+}
+
+
+/* =========================================
+   SIN RESULTADOS
+========================================= */
+
+.home-search-empty {
+
+    padding: 20px;
+
+    color: #777777;
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   SELECTOR DE NIVEL
+========================================= */
+
+.home-level-selector {
+
+    width: min(580px,
+            100%);
+
+    margin-top: 44px;
+
+    padding: 18px 28px 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #d0d0d0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =========================================
+   HOME — SELECTOR DE NIVELES
+========================================= */
+
+.home-level-selector__title {
+    margin: 0 0 20px;
+
+    color: var(--color-primary);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.4;
+    text-align: center;
+}
+
+
+/* =========================================
+   CONTENEDOR DE BOTONES
+========================================= */
+
+.home-level-selector__options {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+}
+
+
+/* =========================================
+   BOTÓN BASE
+========================================= */
+
+.home-level-option {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 38px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: transparent;
+    color: var(--color-dark);
+
+    font-size: 17px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    /*
+       El tamaño NO cambia al hacer hover.
+       Por eso los botones permanecen estáticos.
+    */
+    transition:
+        background-color 0.45s ease,
+        color 0.45s ease;
+}
+
+
+/* =========================================
+   FLECHA
+========================================= */
+
+.home-level-option__arrow {
+    display: none;
+
+    font-size: 20px;
+    line-height: 1;
+}
+
+
+/* =========================================
+   TODOS
+========================================= */
+
+.home-level-option--all {
+    background: transparent;
+    color: var(--color-dark);
+}
+
+.home-level-option--all:hover {
+    background: var(--color-dark);
+    color: #ffffff;
+}
+
+.home-level-option--all:hover .home-level-option__arrow {
+    display: inline;
+}
+
+
+/* =========================================
+   BÁSICO
+========================================= */
+
+.home-level-option--basic:hover {
+    background: #008100;
+    color: #ffffff;
+}
+
+.home-level-option--basic:hover .home-level-option__arrow {
+    display: inline;
+}
+
+
+/* =========================================
+   INTERMEDIO
+========================================= */
+
+.home-level-option--intermediate:hover {
+    background: #C99840;
+    color: #ffffff;
+}
+
+.home-level-option--intermediate:hover .home-level-option__arrow {
+    display: inline;
+}
+
+
+/* =========================================
+   AVANZADO
+========================================= */
+
+.home-level-option--advanced:hover {
+    background: #8630E3;
+    color: #ffffff;
+}
+
+.home-level-option--advanced:hover .home-level-option__arrow {
+    display: inline;
+}
+
+
+.home-level-option--advanced:hover .home-level-option__arrow,
+.home-level-option--advanced.is-selected .home-level-option__arrow {
+
+    display: inline;
+
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.home-level-option:focus-visible {
+
+    outline: 3px solid rgba(0, 93, 229, 0.35);
+
+    outline-offset: 3px;
+
+}
+
+
+/* =========================================
+   SCROLL DEL AUTOCOMPLETADO
+========================================= */
+
+.home-search__suggestions::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+.home-search__suggestions::-webkit-scrollbar-track {
+
+    background: #f2f2f2;
+
+}
+
+
+.home-search__suggestions::-webkit-scrollbar-thumb {
+
+    background: #c5c5c5;
+
+    border-radius: 10px;
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .home-hero {
+
+        min-height: calc(100vh - 100px);
+
+        padding:
+            60px 20px;
+
+    }
+
+
+    .home-hero h1 {
+
+        font-size: clamp(38px,
+                7vw,
+                54px);
+
+    }
+
+
+    .home-hero__subtitle {
+
+        margin-bottom: 34px;
+
+    }
+
+
+    .home-search__form {
+
+        height: 58px;
+
+    }
+
+
+    .home-search__input {
+
+        font-size: 17px;
+
+    }
+
+
+    .home-level-selector {
+
+        width: min(620px,
+                100%);
+
+    }
+
+}
+
+/* =========================================
+   HOME — HERO
+========================================= */
+
+.home-hero {
+
+    position: relative;
+
+    min-height: calc(100vh - 82px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: visible;
+
+    padding: 70px 24px;
+
+
+    /* =====================================
+       IMAGEN DE FONDO
+    ====================================== */
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(8, 20, 48, 0.88) 0%,
+            rgba(8, 30, 65, 0.50) 45%,
+            rgba(8, 20, 48, 0.82) 100%),
+        url("../assets/images/general/fondo-home.jpg");
+
+    background-position: center center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    z-index: 10;
+
+}
+
+@media (max-width: 600px) {
+
+    /* =========================================
+   HOME — HERO
+========================================= */
+
+    .home-hero h1 {
+
+        font-size: 31px;
+
+        line-height: 1.08;
+
+        letter-spacing: -0.5px;
+
+    }
+
+    .home-hero h1 {
+
+        font-size: 34px;
+
+        letter-spacing: -0.5px;
+
+    }
+
+
+    .home-hero__subtitle {
+
+        margin-top: 16px;
+
+        margin-bottom: 28px;
+
+        font-size: 15px;
+
+    }
+
+
+    .home-search__form {
+
+        height: auto;
+
+        flex-direction: column;
+
+        overflow: visible;
+
+        border-radius: 14px;
+
+    }
+
+
+    .home-search__input-wrapper {
+
+        height: 56px;
+
+    }
+
+
+    .home-search__button {
+
+        flex-basis: 48px;
+
+        width: 100%;
+
+        border-radius: 0 0 12px 12px;
+
+    }
+
+
+    .home-search__suggestions {
+
+        top: calc(100% + 6px);
+
+    }
+
+
+    .home-search-suggestion {
+
+        padding: 13px;
+
+    }
+
+
+    .home-search-suggestion__level {
+
+        font-size: 10px;
+
+    }
+
+
+    .home-level-selector {
+
+        margin-top: 32px;
+
+        padding:
+            16px 12px 18px;
+
+    }
+
+
+    .home-level-selector__options {
+
+        display: grid;
+
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+
+        align-items: center;
+
+        gap: 4px;
+
+        width: 100%;
+
+    }
+
+
+    .home-level-option {
+
+        min-width: 0;
+
+        width: 100%;
+
+        padding: 6px 2px;
+
+        font-size: 12px;
+
+        white-space: nowrap;
+
+    }
+
+
+    .home-level-option--all {
+
+        padding-left: 2px;
+
+        padding-right: 2px;
+
+    }
+
+}
+
+/* =========================================
+   HOME — HEADER
+   Igual al header del catálogo
+========================================= */
+
+.home-site-header .header-container {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.home-site-header .logo {
+
+    flex: 0 0 auto;
+
+}
+
+
+.home-site-header .main-nav {
+
+    margin-left: auto;
+
+}
+
+
+.home-site-header .main-nav ul {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 24px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.home-site-header .main-nav a {
+
+    white-space: nowrap;
+
+}
+
+/* =========================================
+   CONTENEDOR DEL BUSCADOR
+========================================= */
+
+.home-search {
+
+    position: relative;
+
+    z-index: 1000;
+
+}
+
+/* =========================================
+   NIVELES — ESTADO NORMAL
+========================================= */
+
+.home-level-option {
+    transition:
+        background-color 0.45s ease,
+        color 0.45s ease,
+        padding 0.45s ease;
+}
+
+
+/* =========================================
+   TODOS
+========================================= */
+
+.home-level-option--all {
+    background: transparent;
+    color: var(--color-dark);
+}
+
+.home-level-option--all:hover {
+    background: var(--color-dark);
+    color: #ffffff;
+}
+
+
+/* =========================================
+   BÁSICO
+========================================= */
+
+.home-level-option--basic:hover {
+    background: #008100;
+    color: #ffffff;
+}
+
+.home-level-option--basic:hover .home-level-option__arrow {
+    display: inline;
+}
+
+
+/* =========================================
+   INTERMEDIO
+========================================= */
+
+.home-level-option--intermediate:hover {
+    background: #C99840;
+    color: #ffffff;
+}
+
+.home-level-option--intermediate:hover .home-level-option__arrow {
+    display: inline;
+}
+
+
+/* =========================================
+   AVANZADO
+========================================= */
+
+.home-level-option--advanced:hover {
+    background: #8630E3;
+    color: #ffffff;
+}
+
+.home-level-option--advanced:hover .home-level-option__arrow {
+    display: inline;
+}
+
+/* =========================================
+   LISTA DE RECOMENDACIONES
+========================================= */
+
+.home-search__suggestions {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 0;
+
+    width: 100%;
+
+    max-height: 360px;
+
+    overflow-y: auto;
+
+    /* Fondo completamente sólido */
+
+    background: #FFFFFF;
+
+    /* Borde */
+
+    border: 1px solid #CECECE;
+
+    border-radius: 12px;
+
+    /* Sombra */
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.22);
+
+    /* Muy importante:
+       queda por encima del Hero
+       y del selector de niveles */
+
+    z-index: 9999;
+
+}
+
+
+/* =========================================
+   RECOMENDACIÓN INDIVIDUAL
+========================================= */
+
+.home-search__suggestion {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 18px;
+
+    border: none;
+
+    border-bottom: 1px solid #CECECE;
+
+    /* Fondo sólido */
+
+    background: #FFFFFF;
+
+    color: #191E3A;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease;
+
+}
+
+
+/* Última recomendación */
+
+.home-search__suggestion:last-child {
+
+    border-bottom: none;
+
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.home-search__suggestion:hover {
+
+    background: #E6F0FF;
+
+}
+
+
+/* =========================================
+   INFORMACIÓN DEL TÉRMINO
+========================================= */
+
+.home-search__suggestion-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================
+   TÉRMINO
+========================================= */
+
+.home-search__suggestion-term {
+
+    display: block;
+
+    font-size: 14px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #191E3A;
+
+}
+
+
+/* =========================================
+   INGLÉS
+========================================= */
+
+.home-search__suggestion-english {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    line-height: 1.3;
+
+    font-weight: 400;
+
+    color: #737B91;
+
+}
+
+
+/* =========================================
+   NIVEL
+========================================= */
+
+.home-search__suggestion-level {
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   BÁSICO
+========================================= */
+
+.home-search__suggestion-level.nivel-basico {
+
+    background: #008100;
+
+    color: #FFFFFF;
+
+}
+
+
+/* =========================================
+   INTERMEDIO
+========================================= */
+
+.home-search__suggestion-level.nivel-intermedio {
+
+    background: #C99840;
+
+    color: #FFFFFF;
+
+}
+
+
+/* =========================================
+   AVANZADO
+========================================= */
+
+.home-search__suggestion-level.nivel-avanzado {
+
+    background: #8630E3;
+
+    color: #FFFFFF;
+
+}
+
+
+/* =========================================
+   SIN RESULTADOS
+========================================= */
+
+.home-search__no-results {
+
+    padding: 18px;
+
+    background: #FFFFFF;
+
+    color: #737B91;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   ASEGURAR QUE EL SELECTOR DE NIVELES
+   QUEDE DEBAJO DE LAS RECOMENDACIONES
+========================================= */
+
+.home-level-selector {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+/* =========================================
+   HOME — SELECCIÓN CON TECLADO
+========================================= */
+
+.home-search__suggestion.is-keyboard-selected {
+
+    background: #E6F0FF;
+
+}
+
+
+/* Mantener el nivel visible */
+
+.home-search__suggestion.is-keyboard-selected .home-search__suggestion-level {
+
+    opacity: 1;
+
+}
+
+/* =========================================
+   HEADER FIJO AL HACER SCROLL
+========================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+/* =========================================
+   NAVEGACIÓN — ESTADO ACTIVO
+========================================= */
+
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* Estado normal */
+
+.main-nav a {
+    color: #ffffff;
+}
+
+
+/* Página actual */
+
+.main-nav a.active {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+/* =========================================
+   PAGINACIÓN
+========================================= */
+
+.pagination-button {
+    min-width: 44px;
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--color-dark);
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* Hover */
+
+.pagination-button:hover:not(:disabled) {
+    background: #ffffff;
+    border-color: var(--color-border);
+    color: var(--color-primary);
+}
+
+
+/* Página seleccionada */
+
+.pagination-button.active {
+    background: #ffffff;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+
+/* Flechas */
+
+.pagination-arrow {
+    font-size: 20px;
+}
+
+
+/* Flechas desactivadas */
+
+.pagination-button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+/* =========================================
+   HEADER — HOVER Y ESTADO ACTIVO
+========================================= */
+
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    color: #ffffff;
+    background: transparent;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================
+   AL PASAR EL RATÓN
+========================================= */
+
+.main-nav a:hover {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+
+/* =========================================
+   PÁGINA ACTUAL
+========================================= */
+
+.main-nav a.active {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+/* =========================================
+   HEADER DE TÉRMINO — CATEGORÍAS ACTIVO
+========================================= */
+
+/* Estado normal de los enlaces del header */
+
+.main-nav a {
+    color: #ffffff;
+    background: transparent;
+}
+
+
+/* Hover */
+
+.main-nav a:hover {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+
+/* Página actual */
+
+.main-nav a.active {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+
+/* =========================================
+   CORRECCIÓN ESPECÍFICA PARA EL HEADER
+   DE LA PÁGINA DE TÉRMINO
+========================================= */
+
+.term-detail-page .main-nav a.active,
+.term-page .main-nav a.active,
+.term-header .main-nav a.active,
+.term-site-header .main-nav a.active {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+/* =========================================
+   BUSCADOR DE TÉRMINOS — NOTICIAS
+========================================= */
+
+.news-header-search {
+
+    position: relative;
+
+    width: 560px;
+
+    flex: 0 1 560px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.news-site-header .header-container {
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+}
+
+.news-site-header .main-nav {
+
+    flex: 0 0 auto;
+
+    width: auto;
+
+    margin-left: 0;
+
+}
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+.news-header-search .search-box {
+
+    width: 100%;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    margin: 0;
+
+}
+
+
+/* =========================================
+   CONTENEDOR DEL INPUT
+========================================= */
+
+.news-search__input-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 10px;
+
+    background: var(--color-white);
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================
+   LUPA
+========================================= */
+
+.news-search__icon {
+
+    position: relative;
+
+    flex: 0 0 20px;
+
+    width: 20px;
+
+    height: 20px;
+
+    margin-left: 22px;
+
+    margin-right: 24px;
+
+    border: 2px solid #555555;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+}
+
+.news-search__icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+
+    height: 2px;
+
+    right: -7px;
+
+    bottom: -4px;
+
+    background: #555555;
+
+    border-radius: 2px;
+
+    transform: rotate(45deg);
+
+    transform-origin: center;
+
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.news-search__input-wrapper input {
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 58px 0 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--color-dark);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+}
+
+.news-search__input-wrapper input::placeholder {
+
+    color: #777777;
+
+}
+
+.news-search__input-wrapper input[type="search"]::-webkit-search-cancel-button,
+.news-search__input-wrapper input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* =========================================
+   BOTÓN LIMPIAR — X
+========================================= */
+
+.news-header-search .search-box button.news-search__clear {
+
+    position: absolute;
+
+    right: 14px;
+
+    top: 50%;
+
+    width: 34px;
+
+    min-width: 34px;
+
+    max-width: 34px;
+
+    height: 34px;
+
+    min-height: 34px;
+
+    max-height: 34px;
+
+    flex: 0 0 34px;
+
+    transform: translateY(-50%);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    box-sizing: border-box;
+
+}
+
+.news-header-search .search-box button.news-search__clear.is-visible {
+
+    display: flex;
+
+}
+
+.news-header-search .search-box button.news-search__clear:hover {
+
+    background: var(--color-primary-hover);
+
+}
+
+
+/* =========================================
+   RECOMENDACIONES
+========================================= */
+
+.news-search-suggestions {
+
+    position: absolute;
+
+    top: calc(100% + 6px);
+
+    left: 0;
+
+    width: 100%;
+
+    max-height: 360px;
+
+    overflow-y: auto;
+
+    display: none;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12);
+
+    z-index: 10000;
+
+}
+
+.news-search-suggestions.is-visible {
+
+    display: block;
+
+}
+
+
+/* =========================================
+   OPCIONES
+========================================= */
+
+.news-search-suggestion {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 3px;
+
+    padding: 12px 16px;
+
+    border: 0;
+
+    border-bottom:
+        1px solid var(--color-border);
+
+    background: var(--color-white);
+
+    color: var(--color-dark);
+
+    font-family: "Montserrat", sans-serif;
+
+    text-align: left;
+
+    cursor: pointer;
+
+}
+
+.news-search-suggestion:last-child {
+
+    border-bottom: 0;
+
+}
+
+.news-search-suggestion:hover {
+
+    background: var(--color-soft-blue);
+
+}
+
+
+/* =========================================
+   TÉRMINO
+========================================= */
+
+.news-search-suggestion__term {
+
+    color: var(--color-dark);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================
+   INGLÉS
+========================================= */
+
+.news-search-suggestion__english {
+
+    color: #777;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================
+   SIN RESULTADOS
+========================================= */
+
+.news-search-no-results {
+
+    padding: 16px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .news-header-search {
+
+        width: 420px;
+
+        flex-basis: 420px;
+
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .news-header-search {
+
+        width: 100%;
+
+        flex-basis: auto;
+
+        order: 3;
+
+    }
+
+}
+
+/* =========================================
+   HEADER — NAVEGACIÓN DE CATEGORÍAS
+   MISMA INTERACCIÓN QUE EL HEADER PRINCIPAL
+========================================= */
+
+.main-navigation a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    background: transparent;
+    color: #ffffff;
+
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: var(--weight);
+
+    text-decoration: none;
+
+    opacity: 1;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.main-navigation a:hover {
+    background: #ffffff;
+    color: var(--color-dark);
+    opacity: 1;
+}
+
+
+/* =========================================
+   PÁGINA ACTIVA
+========================================= */
+
+.main-navigation a.active {
+    background: #ffffff;
+    color: var(--color-dark);
+    opacity: 1;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer {
+    width: 100%;
+    margin-top: 80px;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ==========================================
+   ZONA PRINCIPAL
+========================================== */
+
+.site-footer__main {
+    position: relative;
+    overflow: hidden;
+    background: #F7F9FC;
+    border-top: 1px solid #CECECE;
+}
+
+
+/* ==========================================
+   CONTENEDOR
+========================================== */
+
+.site-footer__container {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 80px));
+    min-height: 0;
+
+    margin: 0 auto;
+    padding: 45px 0 35px;
+
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr 0.8fr;
+    gap: 70px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   MARCA / LOGO
+========================================== */
+
+.site-footer__brand {
+    max-width: 570px;
+}
+
+
+/* Espacio donde irá el logo */
+
+.site-footer__logo {
+    width: 330px;
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 20px;
+}
+
+/* Imagen del logo */
+
+.site-footer__logo img {
+    display: block;
+
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/*
+   Si todavía no tienes el logo dentro
+   de la carpeta, puedes dejar este espacio
+   vacío temporalmente.
+*/
+
+
+/* ==========================================
+   SEPARADOR
+========================================== */
+
+.site-footer__separator {
+    width: 38px;
+    height: 3px;
+
+    margin-bottom: 20px;
+
+    background: #005DE5;
+}
+
+
+/* ==========================================
+   DESCRIPCIÓN
+========================================== */
+
+.site-footer__brand h3 {
+    margin: 0 0 8px;
+
+    color: #191E3A;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+.site-footer__brand p {
+    max-width: 530px;
+
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   COLUMNAS
+========================================== */
+
+.site-footer__column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.site-footer__column h4 {
+    margin: 0;
+
+    color: #191E3A;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    line-height: 1.4;
+}
+
+
+/* Línea azul debajo del título */
+
+.site-footer__heading-line {
+    width: 42px;
+    height: 3px;
+
+    margin-top: 20px;
+    margin-bottom: 24px;
+
+    background: #005DE5;
+}
+
+
+/* Enlaces */
+
+.site-footer__column a {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #5F6B82;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    text-decoration: none;
+}
+
+
+.site-footer__column a:hover {
+    color: #005DE5;
+    transform: translateX(4px);
+}
+
+
+/* ==========================================
+   CRÉDITOS
+========================================== */
+
+.site-footer__credits {
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   ILUSTRACIÓN DEL GLOBO — FOOTER
+========================================== */
+
+.site-footer__globe {
+    position: absolute;
+
+    right: -90px;
+    bottom: -150px;
+
+    width: 850px;
+    height: 600px;
+
+    z-index: 1;
+
+    background-image: url("../assets/images/general/planeta-footer.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    pointer-events: none;
+
+    opacity: 0.75;
+}
+
+
+/* ==========================================
+   BARRA INFERIOR
+========================================== */
+
+.site-footer__bottom {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+
+    background: #191E3A;
+
+    color: #FFFFFF;
+}
+
+
+.site-footer__bottom-container {
+    width: min(1180px, calc(100% - 80px));
+
+    min-height: 82px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    box-sizing: border-box;
+}
+
+
+.site-footer__bottom-left,
+.site-footer__bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+.site-footer__bottom-left {
+    color: #FFFFFF;
+}
+
+
+.site-footer__bottom-right {
+    color: #C7CCDA;
+    text-align: right;
+}
+
+
+/* Separadores */
+
+.site-footer__bottom-divider {
+    width: 1px;
+    height: 18px;
+
+    background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .site-footer__container {
+        width: min(100% - 50px, 760px);
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 50px;
+    }
+
+    .site-footer__brand {
+        grid-column: 1 / -1;
+        max-width: 600px;
+    }
+
+    .site-footer__globe {
+        right: -260px;
+        bottom: -100px;
+        width: 600px;
+        height: 420px;
+    }
+
+    .site-footer__bottom-container {
+        width: min(100% - 50px, 760px);
+
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 22px 0;
+
+        gap: 14px;
+    }
+
+    .site-footer__bottom-right {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .site-footer {
+        margin-top: 40px;
+    }
+
+    .site-footer__container {
+        width: calc(100% - 40px);
+
+        grid-template-columns: 1fr;
+
+        padding: 40px 0 35px;
+
+        gap: 32px;
+    }
+
+    .site-footer__brand {
+        grid-column: auto;
+    }
+
+    .site-footer__logo {
+        width: 100%;
+        max-width: 300px;
+
+        min-height: auto;
+
+        margin-bottom: 22px;
+    }
+
+    .site-footer__logo img {
+        max-width: 300px;
+    }
+
+    .site-footer__separator {
+        margin-bottom: 22px;
+    }
+
+    .site-footer__brand h3 {
+        font-size: 18px;
+        line-height: 1.35;
+    }
+
+    .site-footer__brand p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .site-footer__globe {
+        width: 400px;
+        height: 400px;
+
+        right: -230px;
+        bottom: -100px;
+    }
+
+    .site-footer__bottom-container {
+        width: calc(100% - 40px);
+
+        align-items: flex-start;
+
+        padding: 20px 0;
+    }
+
+    .site-footer__bottom-left,
+    .site-footer__bottom-right {
+        flex-wrap: wrap;
+
+        gap: 8px 14px;
+
+        font-size: 12px;
+    }
+
+    .site-footer__bottom-right {
+        text-align: left;
+    }
+}
+
+/* ==========================================
+   FOOTER — HOME
+   Sin espacio entre el Hero y el Footer
+========================================== */
+
+.home-page+.site-footer {
+    margin-top: 0;
+}
+
+/* Ocultar la X nativa del navegador en el buscador del Home */
+.home-search__input::-webkit-search-cancel-button,
+.home-search__input::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.home-search__input {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* =========================================================
+   HEADER — ISOTIPO SAN MATEO
+   ========================================================= */
+
+.site-header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.site-header .logo img {
+    display: block;
+    width: 58px;
+    height: 58px;
+    max-width: 58px;
+    max-height: 58px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header .logo:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.home-site-header .logo,
+.news-site-header .logo {
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+}
+
+@media (max-width: 600px) {
+    .site-header .logo {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+    }
+
+    .site-header .logo img {
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+    }
+}
+
+/* =========================================
+   SUBCATEGORÍAS - CATEGORÍA ESPECÍFICA
+========================================= */
+
+.subcategory-dropdown.single-category {
+    grid-template-columns: 1fr;
+}
+
+
+/* Ocultar las categorías principales */
+
+.subcategory-dropdown.single-category .subcategory-categories {
+    display: none;
+}
+
+
+/* El panel de subcategorías ocupa todo el menú */
+
+.subcategory-dropdown.single-category .subcategory-options {
+    width: 100%;
+    min-width: 0;
+    border-left: none;
+}
+
+
+/* Las opciones aprovechan todo el ancho */
+
+.subcategory-dropdown.single-category .subcategory-option {
+    width: 100%;
+}
+
+/* ==========================================
+   PUENTE INVISIBLE — NIVEL DE DIFICULTAD
+   Evita que el menú se cierre al cruzar
+   el pequeño espacio entre botón y panel.
+========================================== */
+
+#levelMenu {
+    position: relative;
+}
+
+#levelMenu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 8px;
+    background: transparent;
+    z-index: 999;
+}
+
+/* =========================================================
+   TABLET
+   901px — 1100px
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .site-header .header-container {
+
+        gap: 22px;
+
+    }
+
+
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+
+        gap: 18px;
+
+    }
+
+
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+
+        font-size: 14px;
+
+    }
+
+
+    .term-header-search,
+    .news-header-search {
+
+        max-width: 440px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+   761px — 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .site-header .header-container {
+
+        flex-wrap: wrap;
+
+        row-gap: 14px;
+
+    }
+
+
+    /* Logo */
+
+    .site-header .logo {
+
+        flex: 0 0 58px;
+
+    }
+
+
+    /* Navegación */
+
+    .site-header .main-nav,
+    .site-header .main-navigation {
+
+        margin-left: auto;
+
+    }
+
+
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+
+        gap: 14px;
+
+    }
+
+
+    /* Buscador de término / noticias */
+
+    .term-header-search,
+    .news-header-search {
+
+        order: 3;
+
+        width: 100%;
+
+        max-width: none;
+
+        flex: 1 0 100%;
+
+        margin: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+   Hasta 760px
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+
+    .site-header .header-container {
+
+        width: calc(100% - 32px);
+
+        min-height: 70px;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        column-gap: 12px;
+
+        row-gap: 12px;
+
+        padding-top: 12px;
+
+        padding-bottom: 12px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       LOGO
+    ----------------------------------------------------- */
+
+    .site-header .logo {
+
+        width: 52px;
+
+        height: 52px;
+
+        flex: 0 0 52px;
+
+    }
+
+
+    .site-header .logo img {
+
+        width: 46px;
+
+        height: 46px;
+
+        max-width: 46px;
+
+        max-height: 46px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       NAVEGACIÓN
+    ----------------------------------------------------- */
+
+    .site-header .main-nav,
+    .site-header .main-navigation {
+
+        width: auto;
+
+        margin-left: auto;
+
+        flex: 0 1 auto;
+
+    }
+
+
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        margin: 0;
+
+        padding: 0;
+
+    }
+
+
+    .site-header .main-nav li,
+    .site-header .main-navigation li {
+
+        margin: 0;
+
+        padding: 0;
+
+    }
+
+
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-height: 38px;
+
+        padding: 9px 10px;
+
+        border-radius: 20px;
+
+        font-size: 13px;
+
+        line-height: 1;
+
+        white-space: nowrap;
+
+    }
+
+
+    /* -----------------------------------------------------
+       ESTADO ACTIVO
+    ----------------------------------------------------- */
+
+    .site-header .main-nav a.active,
+    .site-header .main-navigation a.active {
+
+        padding-left: 13px;
+
+        padding-right: 13px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       BUSCADORES DEL HEADER
+       Término / Noticias
+    ----------------------------------------------------- */
+
+    .term-header-search,
+    .news-header-search {
+
+        order: 3;
+
+        width: 100%;
+
+        max-width: none;
+
+        flex: 0 0 100%;
+
+        margin: 0;
+
+    }
+
+
+    .term-header-search .search-box,
+    .news-header-search .search-box {
+
+        width: 100%;
+
+    }
+
+
+    .term-header-search .search-box input,
+    .news-header-search .search-box input {
+
+        width: 100%;
+
+        min-width: 0;
+
+    }
+
+
+    /* -----------------------------------------------------
+       RECOMENDACIONES DEL BUSCADOR
+    ----------------------------------------------------- */
+
+    .header-search-suggestions,
+    .news-search-suggestions {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        max-height: 280px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   Hasta 400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .site-header .header-container {
+
+        width: calc(100% - 24px);
+
+        column-gap: 8px;
+
+    }
+
+
+    .site-header .logo {
+
+        width: 48px;
+
+        height: 48px;
+
+        flex: 0 0 48px;
+
+    }
+
+
+    .site-header .logo img {
+
+        width: 42px;
+
+        height: 42px;
+
+        max-width: 42px;
+
+        max-height: 42px;
+
+    }
+
+
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+
+        gap: 4px;
+
+    }
+
+
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+
+        min-height: 36px;
+
+        padding: 8px 7px;
+
+        font-size: 12px;
+
+    }
+
+
+    .site-header .main-nav a.active,
+    .site-header .main-navigation a.active {
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+
+    }
+
+}
+
+/* =========================================================
+   HOME — SIN ESPACIO ENTRE HERO Y FOOTER EN MÓVIL
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .home-page+.site-footer {
+        margin-top: 0 !important;
+    }
+
+}
+
+/* =========================================================
+   HOME — BUSCADOR RESPONSIVE
+   Mantenerlo como una sola línea
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .home-search {
+        width: 100%;
+        max-width: 900px;
+    }
+
+
+    .home-search__form {
+
+        width: 100%;
+
+        height: 58px;
+
+        display: flex;
+
+        flex-direction: row;
+
+        overflow: hidden;
+
+        border-radius: 14px;
+
+    }
+
+
+    .home-search__input-wrapper {
+
+        width: 100%;
+
+        height: 100%;
+
+        flex: 1;
+
+        min-width: 0;
+
+    }
+
+
+    .home-search__input {
+
+        min-width: 0;
+
+        font-size: 16px;
+
+        padding-right: 48px;
+
+    }
+
+
+    .home-search__icon {
+
+        margin-left: 16px;
+
+        margin-right: 10px;
+
+        font-size: 30px;
+
+    }
+
+
+    .home-search__clear {
+
+        right: 10px;
+
+        width: 32px;
+
+        height: 32px;
+
+    }
+
+}
+
+/* =========================================================
+   FOOTER RESPONSIVE — ILUSTRACIÓN
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .site-footer {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .site-footer__globe {
+        width: 380px;
+        height: 380px;
+
+        right: -105px;
+        bottom: -35px;
+
+        z-index: 1;
+
+        opacity: 0.75;
+    }
+
+    .site-footer__container {
+        position: relative;
+        z-index: 2;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .site-footer__logo {
+        max-width: 290px;
+    }
+
+    .site-footer__logo img {
+        max-width: 290px;
+    }
+
+}
+
+
+@media (max-width: 340px) {
+
+    .home-level-selector__options {
+        gap: 2px;
+    }
+
+    .home-level-option {
+        padding: 6px 0;
+        font-size: 11px;
+    }
+
+    .home-level-option--all {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+
+@media (max-width: 340px) {
+
+    .home-hero h1 {
+
+        font-size: 28px;
+
+        line-height: 1.08;
+
+        letter-spacing: -0.5px;
+
+    }
+
+}
+
+/* =========================================
+   TÉRMINO + NOTICIAS
+   HEADER MÓVIL
+========================================= */
+
+@media (max-width: 760px) {
+
+    .term-site-header .header-container,
+    .news-site-header .header-container {
+
+        display: flex;
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        width: calc(100% - 32px);
+
+        column-gap: 10px;
+
+        row-gap: 12px;
+    }
+
+
+    /* =========================
+       ISOTIPO
+    ========================= */
+
+    .term-site-header .logo,
+    .news-site-header .logo {
+
+        order: 1;
+
+        width: 52px;
+
+        height: 52px;
+
+        flex: 0 0 52px;
+
+        margin: 0;
+    }
+
+
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    .term-site-header .main-nav,
+    .news-site-header .main-nav {
+
+        order: 2;
+
+        width: auto;
+
+        flex: 1 1 auto;
+
+        margin: 0;
+    }
+
+
+    .term-site-header .main-nav ul,
+    .news-site-header .main-nav ul {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-end;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        margin: 0;
+
+        padding: 0;
+    }
+
+
+    /* =========================
+       BUSCADOR
+    ========================= */
+
+    .term-site-header .term-header-search,
+    .news-site-header .news-header-search {
+
+        order: 3;
+
+        width: 100%;
+
+        max-width: none;
+
+        flex: 0 0 100%;
+
+        margin: 0;
+    }
+
+
+    .term-site-header .term-header-search .search-box,
+    .news-site-header .news-header-search .search-box {
+
+        width: 100%;
+    }
+
+}
