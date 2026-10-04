@@ -1,0 +1,97 @@
+:root {
+
+    /* =========================================
+       COLORES PRINCIPALES
+    ========================================= */
+
+    --color-primary: #005DE5;
+    --color-primary-hover: #004BBB;
+    --color-primary-active: #00388E;
+
+    --color-dark: #191E3A;
+
+    --color-background: #F2F2F2;
+
+    --color-white: #FFFFFF;
+
+    --color-border: #CECECE;
+
+    --color-soft-blue: #E6F0FF;
+
+    --color-text: #191E3A;
+    --color-text-secondary: #666666;
+
+
+    /* =========================================
+       NIVELES
+    ========================================= */
+
+    --level-basic: #008100;
+    --level-intermediate: #C99840;
+    --level-advanced: #8630E3;
+
+
+    /* =========================================
+       TIPOGRAFÍA
+    ========================================= */
+
+    --font-family: "Montserrat", Arial, sans-serif;
+
+    --font-h1: 32px;
+    --font-h2: 24px;
+    --font-h3: 18px;
+    --font-body: 15px;
+    --font-small: 13px;
+    --font-badge: 12px;
+
+
+    /* =========================================
+       PESOS
+    ========================================= */
+
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+
+    /* =========================================
+       BORDER RADIUS
+    ========================================= */
+
+    --radius-pill: 20px;
+    --radius-card: 16px;
+    --radius-input: 12px;
+    --radius-small: 6px;
+
+
+    /* =========================================
+       SOMBRAS
+    ========================================= */
+
+    --shadow-card:
+        0 4px 12px rgba(25, 30, 58, 0.05);
+
+    --shadow-elevated:
+        0 12px 32px rgba(0, 0, 0, 0.15);
+
+
+    /* =========================================
+       ESPACIADO
+    ========================================= */
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-xxl: 48px;
+
+
+    /* =========================================
+       CONTENEDOR
+    ========================================= */
+
+    --container-width: 1280px;
+
+}
