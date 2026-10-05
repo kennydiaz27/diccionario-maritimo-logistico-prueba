@@ -295,7 +295,51 @@ function esSiglaDetalle(item) {
 
 }
 
+// ==========================================
+// DETERMINAR DESTINO DEL BOTÓN CERRAR
+// ==========================================
 
+function obtenerDestinoCerrarTermino() {
+
+    const restaurarCatalogo =
+        sessionStorage.getItem(
+            "restaurarCatalogo"
+        );
+
+    // ==========================================
+    // VENIMOS DEL CATÁLOGO
+    // ==========================================
+
+    if (
+        restaurarCatalogo === "true"
+    ) {
+
+        return "catalogo.html";
+    }
+
+
+    // ==========================================
+    // VENIMOS DE OTRA PÁGINA
+    // ==========================================
+
+    const paginaAnterior =
+        sessionStorage.getItem(
+            "paginaAnteriorTermino"
+        );
+
+
+    if (paginaAnterior) {
+
+        return paginaAnterior;
+    }
+
+
+    // ==========================================
+    // RESPALDO
+    // ==========================================
+
+    return "../index.html";
+}
 // ==========================================
 // FICHA DE CONCEPTO
 // ==========================================
@@ -360,21 +404,13 @@ function renderizarFichaConcepto(
 
         <div class="term-detail-top">
 
-            <a
-                href="catalogo.html"
-                class="term-back"
-            >
-                ← Volver al menú
-            </a>
-
-
-            <a
-                href="catalogo.html"
-                class="term-close"
-                aria-label="Cerrar"
-            >
-                ×
-            </a>
+<a
+    href="${obtenerDestinoCerrarTermino()}"
+    class="term-close"
+    aria-label="Cerrar"
+>
+    ×
+</a>
 
         </div>
 
@@ -387,8 +423,8 @@ function renderizarFichaConcepto(
 
             <span
                 class="badge-nivel ${obtenerClaseNivelDetalle(
-                    nivel
-                )}"
+        nivel
+    )}"
             >
                 ${escaparHTMLDetalle(nivel)}
             </span>
@@ -399,26 +435,24 @@ function renderizarFichaConcepto(
             </h1>
 
 
-            ${
-                ingles
-                    ? `
+            ${ingles
+            ? `
                         <p class="term-english">
                             ${escaparHTMLDetalle(ingles)}
                         </p>
                       `
-                    : ""
-            }
+            : ""
+        }
 
 
-            ${
-                categoria
-                    ? `
+            ${categoria
+            ? `
                         <span class="term-category-tag">
                             ${escaparHTMLDetalle(categoria)}
                         </span>
                       `
-                    : ""
-            }
+            : ""
+        }
 
         </section>
 
@@ -447,16 +481,15 @@ function renderizarFichaConcepto(
 
                         <p>
                             ${formatearTextoDetalle(
-                                definicionES
-                            )}
+            definicionES
+        )}
                         </p>
 
                     </div>
 
 
-                    ${
-                        definicionEN
-                            ? `
+                    ${definicionEN
+            ? `
                                 <div class="term-definition-block term-definition-english">
 
                                     <h2>
@@ -465,21 +498,20 @@ function renderizarFichaConcepto(
 
                                     <p>
                                         ${formatearTextoDetalle(
-                                            definicionEN
-                                        )}
+                definicionEN
+            )}
                                     </p>
 
                                 </div>
                               `
-                            : ""
-                    }
+            : ""
+        }
 
                 </section>
 
 
-                ${
-                    ejemplo
-                        ? `
+                ${ejemplo
+            ? `
                             <section class="term-card-detail term-example">
 
                                 <h2>
@@ -488,14 +520,14 @@ function renderizarFichaConcepto(
 
                                 <p>
                                     ${formatearTextoDetalle(
-                                        ejemplo
-                                    )}
+                ejemplo
+            )}
                                 </p>
 
                             </section>
                           `
-                        : ""
-                }
+            : ""
+        }
 
 
             </div>
@@ -532,9 +564,9 @@ function renderizarFichaConcepto(
 
                                 <span>
                                     ${escaparHTMLDetalle(
-                                        categoria ||
-                                        "No disponible"
-                                    )}
+            categoria ||
+            "No disponible"
+        )}
                                 </span>
 
                             </div>
@@ -542,9 +574,8 @@ function renderizarFichaConcepto(
                         </div>
 
 
-                        ${
-                            subcategoria
-                                ? `
+                        ${subcategoria
+            ? `
                                     <div class="term-info-item">
 
                                         <span class="term-info-icon">
@@ -559,16 +590,16 @@ function renderizarFichaConcepto(
 
                                             <span>
                                                 ${escaparHTMLDetalle(
-                                                    subcategoria
-                                                )}
+                subcategoria
+            )}
                                             </span>
 
                                         </div>
 
                                     </div>
                                   `
-                                : ""
-                        }
+            : ""
+        }
 
 
                         <div class="term-info-item">
@@ -606,9 +637,9 @@ function renderizarFichaConcepto(
 
                                 <span>
                                     ${escaparHTMLDetalle(
-                                        item.tipo ||
-                                        "Término"
-                                    )}
+            item.tipo ||
+            "Término"
+        )}
                                 </span>
 
                             </div>
@@ -621,9 +652,8 @@ function renderizarFichaConcepto(
                 </section>
 
 
-                ${
-                    fuente
-                        ? `
+                ${fuente
+            ? `
                             <section class="term-info-card term-source-card">
 
                                 <div class="term-info-header">
@@ -653,8 +683,8 @@ function renderizarFichaConcepto(
 
                             </section>
                           `
-                        : ""
-                }
+            : ""
+        }
 
 
             </aside>
@@ -705,23 +735,14 @@ function renderizarFichaSigla(
     contenedor.innerHTML = `
 
         <div class="term-detail-top">
-
-            <a
-                href="catalogo.html"
-                class="term-back"
-            >
-                ← Volver al menú
-            </a>
-
-
-            <a
-                href="catalogo.html"
-                class="term-close"
-                aria-label="Cerrar"
-            >
-                ×
-            </a>
-
+<a
+    href="${obtenerDestinoCerrarTermino()}"
+    class="term-close"
+    aria-label="Cerrar"
+>
+    ×
+</a>
+s
         </div>
 
 
@@ -729,8 +750,8 @@ function renderizarFichaSigla(
 
             <span
                 class="badge-nivel ${obtenerClaseNivelDetalle(
-                    nivel
-                )}"
+        nivel
+    )}"
             >
                 ${escaparHTMLDetalle(nivel)}
             </span>
@@ -741,15 +762,14 @@ function renderizarFichaSigla(
             </h1>
 
 
-            ${
-                ingles
-                    ? `
+            ${ingles
+            ? `
                         <p class="term-english">
                             ${escaparHTMLDetalle(ingles)}
                         </p>
                       `
-                    : ""
-            }
+            : ""
+        }
 
 
             <span class="term-category-tag">
@@ -774,8 +794,8 @@ function renderizarFichaSigla(
 
                         <p>
                             ${formatearTextoDetalle(
-                                traduccion
-                            )}
+            traduccion
+        )}
                         </p>
 
                     </div>
@@ -789,8 +809,8 @@ function renderizarFichaSigla(
 
                         <p>
                             ${formatearTextoDetalle(
-                                ingles
-                            )}
+            ingles
+        )}
                         </p>
 
                     </div>
@@ -1085,9 +1105,7 @@ function buscarTerminos(
 ) {
 
     const consulta =
-        normalizarTexto(
-            texto
-        );
+        normalizarTexto(texto);
 
 
     if (!consulta) {
@@ -1097,8 +1115,7 @@ function buscarTerminos(
     }
 
 
-    return datos
-
+    const resultados = datos
         .filter(item => {
 
             const termino =
@@ -1106,12 +1123,10 @@ function buscarTerminos(
                     item.termino
                 );
 
-
             const ingles =
                 normalizarTexto(
                     item.ingles
                 );
-
 
             const sigla =
                 normalizarTexto(
@@ -1127,9 +1142,107 @@ function buscarTerminos(
                 sigla.includes(consulta)
             );
 
-        })
+        });
 
-        .slice(0, 8);
+
+    resultados.sort(
+        (a, b) => {
+
+            const terminoA =
+                normalizarTexto(
+                    a.termino
+                );
+
+            const terminoB =
+                normalizarTexto(
+                    b.termino
+                );
+
+            const inglesA =
+                normalizarTexto(
+                    a.ingles
+                );
+
+            const inglesB =
+                normalizarTexto(
+                    b.ingles
+                );
+
+            const siglaA =
+                normalizarTexto(
+                    a.sigla ||
+                    a["Sigla / Abreviatura"] ||
+                    ""
+                );
+
+            const siglaB =
+                normalizarTexto(
+                    b.sigla ||
+                    b["Sigla / Abreviatura"] ||
+                    ""
+                );
+
+
+            // ==================================
+            // PRIORIDAD DE COINCIDENCIA
+            // ==================================
+
+            const prioridadA =
+                terminoA.startsWith(consulta)
+                    ? 1
+                    : siglaA.startsWith(consulta)
+                        ? 2
+                        : inglesA.startsWith(consulta)
+                            ? 3
+                            : terminoA.includes(consulta)
+                                ? 4
+                                : 5;
+
+
+            const prioridadB =
+                terminoB.startsWith(consulta)
+                    ? 1
+                    : siglaB.startsWith(consulta)
+                        ? 2
+                        : inglesB.startsWith(consulta)
+                            ? 3
+                            : terminoB.includes(consulta)
+                                ? 4
+                                : 5;
+
+
+            if (
+                prioridadA !== prioridadB
+            ) {
+
+                return (
+                    prioridadA -
+                    prioridadB
+                );
+
+            }
+
+
+            // ==================================
+            // ORDEN ALFABÉTICO
+            // ==================================
+
+            return terminoA.localeCompare(
+                terminoB,
+                "es",
+                {
+                    sensitivity: "base"
+                }
+            );
+
+        }
+    );
+
+
+    return resultados.slice(
+        0,
+        8
+    );
 
 }
 
@@ -1215,34 +1328,45 @@ function mostrarSugerencias(
 
             opcion.innerHTML = `
 
-                <span class="search-suggestion__term">
+    <span class="search-suggestion__info">
+
+        <span class="search-suggestion__term">
+
+            ${escaparHTMLDetalle(
+                item.termino ||
+                item.sigla ||
+                ""
+            )}
+
+        </span>
+
+        ${item.ingles
+                    ? `
+                <span class="search-suggestion__english">
 
                     ${escaparHTMLDetalle(
-                        item.termino ||
-                        item.sigla ||
-                        ""
+                        item.ingles
                     )}
 
                 </span>
-
-
-                ${
-                    item.ingles
-                        ? `
-
-                            <span class="search-suggestion__english">
-
-                                ${escaparHTMLDetalle(
-                                    item.ingles
-                                )}
-
-                            </span>
-
-                          `
-                        : ""
+            `
+                    : ""
                 }
 
-            `;
+    </span>
+
+    ${item.nivel
+                    ? `
+                <span
+                    class="search-suggestion__level ${obtenerClaseNivelDetalle(item.nivel)}"
+                >
+                    ${escaparHTMLDetalle(item.nivel)}
+                </span>
+            `
+                    : ""
+                }
+
+`;
 
 
             opcion.addEventListener(

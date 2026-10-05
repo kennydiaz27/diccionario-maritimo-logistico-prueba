@@ -279,12 +279,17 @@ function aplicarFiltros(datos) {
     // BÚSQUEDA
     // ======================================
 
-    if (filtros.busqueda) {
+// ======================================
+// BÚSQUEDA INTELIGENTE
+// ======================================
 
-        const busqueda =
-            normalizarTexto(filtros.busqueda);
+if (filtros.busqueda) {
 
-        resultados = resultados.filter(item => {
+    const busqueda =
+        normalizarTexto(filtros.busqueda);
+
+    resultados = resultados
+        .filter(item => {
 
             const termino =
                 normalizarTexto(
@@ -308,9 +313,120 @@ function aplicarFiltros(datos) {
                 ingles.includes(busqueda) ||
                 sigla.includes(busqueda)
             );
+        })
+        .sort((a, b) => {
+
+            // ----------------------------------
+            // PREPARAR TEXTOS
+            // ----------------------------------
+
+            const terminoA =
+                normalizarTexto(
+                    obtenerTerminoBusqueda(a)
+                );
+
+            const terminoB =
+                normalizarTexto(
+                    obtenerTerminoBusqueda(b)
+                );
+
+            const inglesA =
+                normalizarTexto(
+                    obtenerInglesBusqueda(a)
+                );
+
+            const inglesB =
+                normalizarTexto(
+                    obtenerInglesBusqueda(b)
+                );
+
+            const siglaA =
+                normalizarTexto(
+                    a.sigla ||
+                    a["Sigla / Abreviatura"] ||
+                    ""
+                );
+
+            const siglaB =
+                normalizarTexto(
+                    b.sigla ||
+                    b["Sigla / Abreviatura"] ||
+                    ""
+                );
+
+
+            // ----------------------------------
+            // PRIORIDAD DE COINCIDENCIA
+            // ----------------------------------
+
+            function obtenerPrioridad(
+                termino,
+                ingles,
+                sigla
+            ) {
+
+                // 1. El término comienza
+                //    exactamente con la búsqueda
+                if (termino.startsWith(busqueda)) {
+                    return 1;
+                }
+
+                // 2. La sigla comienza
+                //    con la búsqueda
+                if (sigla.startsWith(busqueda)) {
+                    return 2;
+                }
+
+                // 3. El inglés comienza
+                //    con la búsqueda
+                if (ingles.startsWith(busqueda)) {
+                    return 3;
+                }
+
+                // 4. La búsqueda aparece
+                //    en cualquier otra posición
+                return 4;
+            }
+
+
+            const prioridadA =
+                obtenerPrioridad(
+                    terminoA,
+                    inglesA,
+                    siglaA
+                );
+
+            const prioridadB =
+                obtenerPrioridad(
+                    terminoB,
+                    inglesB,
+                    siglaB
+                );
+
+
+            // ----------------------------------
+            // ORDENAR POR PRIORIDAD
+            // ----------------------------------
+
+            if (prioridadA !== prioridadB) {
+                return prioridadA - prioridadB;
+            }
+
+
+            // ----------------------------------
+            // SI TIENEN LA MISMA PRIORIDAD,
+            // ORDEN ALFABÉTICO
+            // ----------------------------------
+
+            return terminoA.localeCompare(
+                terminoB,
+                "es",
+                {
+                    sensitivity: "base"
+                }
+            );
         });
     }
-
 
     return resultados;
 }

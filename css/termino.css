@@ -250,7 +250,7 @@
 
     align-items: center;
 
-    justify-content: space-between;
+    justify-content: flex-end;
 
     margin-bottom: 28px;
 }
@@ -679,26 +679,22 @@
 
 
 .term-source {
-
     display: flex;
-
     align-items: flex-start;
-
     gap: 12px;
+    min-width: 0;
 }
 
-
 .term-source a {
-
+    min-width: 0;
+    max-width: 100%;
     color: var(--color-dark);
-
     font-size: 13px;
-
     font-weight: 600;
-
     line-height: 1.5;
-
     text-decoration: underline;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 
@@ -1191,34 +1187,31 @@
 ========================================== */
 
 .search-suggestion {
-
     width: 100%;
 
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    flex-direction: column;
+    gap: 20px;
 
-    align-items: flex-start;
+    padding: 14px 16px;
 
-    gap: 3px;
-
-    padding: 12px 16px;
+    box-sizing: border-box;
 
     border: 0;
-
-    border-bottom:
-        1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 
     background: var(--color-white);
-
     color: var(--color-dark);
 
     font-family: "Montserrat", sans-serif;
 
     text-align: left;
-
     cursor: pointer;
 
+    transition:
+        background-color 0.15s ease;
 }
 
 .search-suggestion:last-child {
@@ -1232,7 +1225,12 @@
     background: var(--color-soft-blue);
 
 }
+.search-suggestion__info {
+    display: flex;
+    flex-direction: column;
 
+    min-width: 0;
+}
 
 /* ==========================================
    TÉRMINO
@@ -1267,7 +1265,60 @@
 
 }
 
+/* ==========================================
+   NIVEL DE DIFICULTAD
+========================================== */
 
+.search-suggestion__level {
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    color: #FFFFFF;
+
+    font-size: 11px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* BÁSICO */
+
+.search-suggestion__level.nivel-basico {
+
+    background: #008100;
+
+}
+
+
+/* INTERMEDIO */
+
+.search-suggestion__level.nivel-intermedio {
+
+    background: #C99840;
+
+}
+
+
+/* AVANZADO */
+
+.search-suggestion__level.nivel-avanzado {
+
+    background: #8630E3;
+
+}
 /* ==========================================
    SIN RESULTADOS
 ========================================== */
@@ -1475,4 +1526,129 @@
 
         width: 100%;
     }
+}
+/* =========================================================
+   TÉRMINO — HEADER RESPONSIVE FINAL
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .term-site-header .header-container {
+        display: flex !important;
+
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+
+        align-items: center;
+        justify-content: space-between;
+
+        width: calc(100% - 32px);
+
+        min-height: 70px;
+
+        column-gap: 8px;
+        row-gap: 12px;
+
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .term-site-header .logo {
+        order: 1;
+
+        width: 52px;
+        height: 52px;
+
+        flex: 0 0 52px;
+
+        margin: 0;
+    }
+
+    .term-site-header .logo img {
+        width: 46px;
+        height: 46px;
+
+        max-width: 46px;
+        max-height: 46px;
+    }
+
+
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    .term-site-header .main-nav {
+        order: 2;
+
+        width: auto !important;
+
+        flex: 1 1 auto;
+
+        margin: 0 0 0 auto;
+    }
+
+    .term-site-header .main-nav ul {
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: flex-end;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .term-site-header .main-nav li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .term-site-header .main-nav a {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 38px;
+
+        padding: 9px 10px;
+
+        border-radius: 20px;
+
+        font-size: 13px;
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       BUSCADOR
+    ========================= */
+
+    .term-site-header .term-header-search {
+        order: 3;
+
+        width: 100% !important;
+        max-width: none !important;
+
+        flex: 0 0 100% !important;
+
+        margin: 0;
+    }
+
+    .term-site-header .term-header-search .search-box {
+        width: 100%;
+    }
+
 }

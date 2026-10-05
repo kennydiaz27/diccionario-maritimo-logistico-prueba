@@ -41,7 +41,7 @@
                 <img src="../assets/images/logo/isotipo-sanmateo-blanco.png" alt="San Mateo">
             </a>
 
-            <nav class="main-navigation">
+            <nav class="main-nav">
 
                 <ul>
 
@@ -85,9 +85,15 @@
 
             <section class="catalog-header">
 
+                <span class="page-eyebrow">
+                    INFORMACIÓN
+                </span>
+
                 <h1>
                     Categorías
                 </h1>
+
+                <span class="page-header__line"></span>
 
                 <p>
                     Explora términos relacionados con los
@@ -101,20 +107,32 @@
 
             <!-- BUSCADOR -->
 
-            <section class="catalog-search">
+ <section class="catalog-search">
 
-                <form class="search-box" id="catalogSearchForm">
+    <form class="search-box" id="catalogSearchForm">
 
-                    <input type="search" id="catalogSearch"
-                        placeholder="Busca por término, traducción, sigla o palabra clave..." autocomplete="off">
+        <span class="catalog-search__icon" aria-hidden="true"></span>
 
-                    <button type="submit">
-                        Buscar
-                    </button>
+        <input
+            type="search"
+            id="catalogSearch"
+            placeholder="Busca un término, sigla o concepto"
+            autocomplete="off"
+            aria-label="Buscar término, sigla o concepto"
+        >
 
-                </form>
+        <button
+            type="button"
+            id="catalogSearchClear"
+            class="catalog-search__clear"
+            aria-label="Limpiar búsqueda"
+        >
+            ×
+        </button>
 
-            </section>
+    </form>
+
+</section>
 
 
             <!-- CATEGORÍAS -->
@@ -427,7 +445,7 @@
                     Este apartado se desarrollará después.
                 -->
 
-                    <a href="#" class="site-footer__credits">
+                    <a href="creditos.html" class="site-footer__credits">
                         Créditos
                     </a>
 

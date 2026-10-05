@@ -1,4 +1,57 @@
 // ==========================================
+// BOTÓN CERRAR NOTICIAS
+// VOLVER A LA PÁGINA ANTERIOR
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const botonCerrar =
+        document.querySelector(".news-close");
+
+    if (!botonCerrar) {
+        return;
+    }
+
+    const paginaAnterior =
+        document.referrer;
+
+    // Por defecto, si no existe una página
+    // anterior dentro de nuestro sitio,
+    // volvemos al inicio.
+    let destino =
+        "../index.html";
+
+    if (paginaAnterior) {
+
+        try {
+
+            const urlAnterior =
+                new URL(paginaAnterior);
+
+            // Solo aceptamos páginas de
+            // nuestro mismo sitio.
+            if (
+                urlAnterior.origin ===
+                window.location.origin
+            ) {
+
+                destino =
+                    urlAnterior.href;
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "⚠️ No se pudo determinar la página anterior."
+            );
+
+        }
+    }
+
+    botonCerrar.href = destino;
+
+});
+// ==========================================
 // BUSCADOR DE TÉRMINOS — NOTICIAS
 // ==========================================
 
@@ -219,149 +272,161 @@ document.addEventListener("DOMContentLoaded", async () => {
     // BUSCAR TÉRMINOS
     // ==========================================
 
-    function buscarTerminosNoticias(
-        texto,
-        datos
-    ) {
+function buscarTerminosNoticias(
+    texto,
+    datos
+) {
 
-        const consulta =
-            normalizarTextoNoticias(
-                texto
-            );
+    const consulta =
+        normalizarTextoNoticias(texto);
 
 
-        if (!consulta) {
+    if (!consulta) {
 
-            return [];
-        }
-
-
-        return datos
-
-            .map(
-                (
-                    item,
-                    indice
-                ) => ({
-
-                    item: item,
-
-                    indice: indice
-
-                })
-            )
-
-            .filter(
-                registro => {
-
-                    const item =
-                        registro.item;
-
-
-                    const termino =
-                        normalizarTextoNoticias(
-                            item.termino || ""
-                        );
-
-
-                    const ingles =
-                        normalizarTextoNoticias(
-                            item.ingles || ""
-                        );
-
-
-                    const sigla =
-                        normalizarTextoNoticias(
-                            item.sigla ||
-                            item["Sigla / Abreviatura"] ||
-                            ""
-                        );
-
-
-                    return (
-
-                        termino.includes(
-                            consulta
-                        ) ||
-
-                        ingles.includes(
-                            consulta
-                        ) ||
-
-                        sigla.includes(
-                            consulta
-                        )
-
-                    );
-
-                }
-            )
-
-            .sort(
-                (
-                    a,
-                    b
-                ) => {
-
-                    const terminoA =
-                        normalizarTextoNoticias(
-                            a.item.termino || ""
-                        );
-
-
-                    const terminoB =
-                        normalizarTextoNoticias(
-                            b.item.termino || ""
-                        );
-
-
-                    const empiezaA =
-                        terminoA.startsWith(
-                            consulta
-                        );
-
-
-                    const empiezaB =
-                        terminoB.startsWith(
-                            consulta
-                        );
-
-
-                    if (
-                        empiezaA &&
-                        !empiezaB
-                    ) {
-
-                        return -1;
-                    }
-
-
-                    if (
-                        !empiezaA &&
-                        empiezaB
-                    ) {
-
-                        return 1;
-                    }
-
-
-                    return terminoA.localeCompare(
-                        terminoB,
-                        "es",
-                        {
-                            sensitivity: "base"
-                        }
-                    );
-
-                }
-            )
-
-            .slice(
-                0,
-                8
-            );
+        return [];
 
     }
+
+
+    const resultados = datos
+        .map(
+            (item, indice) => ({
+                item: item,
+                indice: indice
+            })
+        )
+        .filter(
+            registro => {
+
+                const item =
+                    registro.item;
+
+                const termino =
+                    normalizarTextoNoticias(
+                        item.termino || ""
+                    );
+
+                const ingles =
+                    normalizarTextoNoticias(
+                        item.ingles || ""
+                    );
+
+                const sigla =
+                    normalizarTextoNoticias(
+                        item.sigla ||
+                        item[
+                            "Sigla / Abreviatura"
+                        ] ||
+                        ""
+                    );
+
+
+                return (
+                    termino.includes(consulta) ||
+                    ingles.includes(consulta) ||
+                    sigla.includes(consulta)
+                );
+
+            }
+        );
+
+
+    resultados.sort(
+        (a, b) => {
+
+            const terminoA =
+                normalizarTextoNoticias(
+                    a.item.termino || ""
+                );
+
+            const terminoB =
+                normalizarTextoNoticias(
+                    b.item.termino || ""
+                );
+
+            const inglesA =
+                normalizarTextoNoticias(
+                    a.item.ingles || ""
+                );
+
+            const inglesB =
+                normalizarTextoNoticias(
+                    b.item.ingles || ""
+                );
+
+            const siglaA =
+                normalizarTextoNoticias(
+                    a.item.sigla ||
+                    a.item[
+                        "Sigla / Abreviatura"
+                    ] ||
+                    ""
+                );
+
+            const siglaB =
+                normalizarTextoNoticias(
+                    b.item.sigla ||
+                    b.item[
+                        "Sigla / Abreviatura"
+                    ] ||
+                    ""
+                );
+
+
+            const prioridadA =
+                terminoA.startsWith(consulta)
+                    ? 1
+                    : siglaA.startsWith(consulta)
+                        ? 2
+                        : inglesA.startsWith(consulta)
+                            ? 3
+                            : terminoA.includes(consulta)
+                                ? 4
+                                : 5;
+
+
+            const prioridadB =
+                terminoB.startsWith(consulta)
+                    ? 1
+                    : siglaB.startsWith(consulta)
+                        ? 2
+                        : inglesB.startsWith(consulta)
+                            ? 3
+                            : terminoB.includes(consulta)
+                                ? 4
+                                : 5;
+
+
+            if (
+                prioridadA !== prioridadB
+            ) {
+
+                return (
+                    prioridadA -
+                    prioridadB
+                );
+
+            }
+
+
+            return terminoA.localeCompare(
+                terminoB,
+                "es",
+                {
+                    sensitivity: "base"
+                }
+            );
+
+        }
+    );
+
+
+    return resultados.slice(
+        0,
+        8
+    );
+
+}
 
 
     // ==========================================
@@ -440,38 +505,42 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
                 opcion.innerHTML = `
+    <span class="news-search-suggestion__info">
 
-                    <span
-                        class="news-search-suggestion__term"
-                    >
+        <span class="news-search-suggestion__term">
+            ${escaparHTMLNoticias(
+                item.termino ||
+                item.sigla ||
+                "Sin término"
+            )}
+        </span>
 
-                        ${escaparHTMLNoticias(
-                            item.termino ||
-                            item.sigla ||
-                            "Sin término"
-                        )}
-
-                    </span>
-
-                    ${
+        ${item.ingles
+            ? `
+                <span class="news-search-suggestion__english">
+                    ${escaparHTMLNoticias(
                         item.ingles
-                            ? `
+                    )}
+                </span>
+            `
+            : ""
+        }
 
-                                <span
-                                    class="news-search-suggestion__english"
-                                >
+    </span>
 
-                                    ${escaparHTMLNoticias(
-                                        item.ingles
-                                    )}
-
-                                </span>
-
-                              `
-                            : ""
-                    }
-
-                `;
+    ${
+        item.nivel
+            ? `
+                <span
+                    class="news-search-suggestion__level ${obtenerClaseNivelNoticias(item.nivel)}"
+                >
+                    ${escaparHTMLNoticias(item.nivel)}
+                </span>
+            `
+            : ""
+    }
+`;
+    
 
 
                 opcion.addEventListener(
@@ -505,6 +574,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }
 
+    // ==========================================
+// CLASE DEL NIVEL
+// ==========================================
+
+function obtenerClaseNivelNoticias(nivel) {
+
+    const nivelNormalizado =
+        normalizarTextoNoticias(nivel);
+
+    if (nivelNormalizado === "basico") {
+        return "nivel-basico";
+    }
+
+    if (nivelNormalizado === "intermedio") {
+        return "nivel-intermedio";
+    }
+
+    if (nivelNormalizado === "avanzado") {
+        return "nivel-avanzado";
+    }
+
+    return "";
+}
 
     // ==========================================
     // OCULTAR RECOMENDACIONES

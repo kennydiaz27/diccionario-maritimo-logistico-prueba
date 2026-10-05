@@ -441,30 +441,57 @@
 ========================================= */
 
 .news-card__link {
-
     display: inline-flex;
-
     align-items: center;
+    justify-content: center;
+    gap: 6px;
 
+    width: fit-content;
+    min-height: 34px;
     margin-top: auto;
+    padding: 7px 11px;
 
-    color: var(--color-primary);
+    box-sizing: border-box;
 
-    font-size: 13px;
+    border: 1px solid #005DE5;
+    border-radius: 6px;
 
+    background: #E6F0FF;
+    color: #005DE5;
+
+    font-size: 12px;
     font-weight: 600;
+    line-height: 1.2;
 
     text-decoration: none;
 
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 
 .news-card__link:hover {
-
-    text-decoration: underline;
-
+    background: #005DE5;
+    border-color: #005DE5;
+    color: #FFFFFF;
+    text-decoration: none;
+    transform: translateY(-1px);
 }
 
+.news-card__link:active {
+    background: #00388E;
+    border-color: #00388E;
+    color: #FFFFFF;
+
+    transform: translateY(0);
+}
+
+.news-card__link+.news-card__link {
+    margin-top: 8px;
+}
 
 /* =========================================
    RESPONSIVE — TABLET GRANDE
@@ -488,47 +515,9 @@
 
 @media (max-width: 900px) {
 
-    .header-container {
-
-        flex-wrap: wrap;
-
-        padding: 16px 0;
-
-    }
-
-
-    .header-search {
-
-        order: 3;
-
-        flex-basis: 100%;
-
-        max-width: none;
-
-    }
-
-
-    .main-navigation {
-
-        margin-left: auto;
-
-    }
-
-
-    /* Noticias */
-
     .news-grid {
-
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
-
-    }
-
-
-    .news-site-header .main-nav ul {
-
-        gap: 16px;
-
     }
 
 }
@@ -540,73 +529,30 @@
 
 @media (max-width: 600px) {
 
-    .header-container {
-
-        width: min(calc(100% - 32px),
-                var(--container-width));
-
-    }
-
-
-    .main-navigation {
-
-        gap: 12px;
-
-    }
-
-
-    .main-navigation a {
-
-        font-size: 12px;
-
-    }
-
-
     .detail-container {
-
         width: calc(100% - 32px);
-
     }
-
-
-    /* Noticias */
 
     .news-page {
-
         padding: 28px 0 50px;
-
     }
-
 
     .news-grid {
-
         grid-template-columns: 1fr;
-
     }
-
 
     .news-header h1 {
-
         font-size: 28px;
-
     }
-
 
     .news-header p {
-
         font-size: 14px;
-
     }
 
-
     .news-close {
-
         width: 34px;
-
         height: 34px;
-
         font-size: 21px;
-
     }
 
 }
@@ -625,7 +571,6 @@
 ========================================= */
 
 .home-hero {
-
     position: relative;
 
     min-height: calc(100vh - 82px);
@@ -638,19 +583,23 @@
 
     overflow: hidden;
 
-    padding: 70px 24px;
+    padding: 50px 24px 70px;
 
-    background:
-        radial-gradient(circle at 50% 45%,
-            rgba(0, 93, 229, 0.30),
-            transparent 42%),
-        linear-gradient(135deg,
-            #101832 0%,
-            #172b4d 45%,
-            #0c1830 100%);
+    background-image:
+        linear-gradient(to bottom,
+            rgba(8, 20, 48, 0.88) 0%,
+            rgba(8, 30, 65, 0.50) 45%,
+            rgba(8, 20, 48, 0.82) 100%),
+        url("../assets/images/general/fondo-home.jpg");
 
+    background-position: center center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    z-index: 10;
 }
-
 
 
 /* =========================================
@@ -658,9 +607,20 @@
 ========================================= */
 
 .home-hero__overlay {
+    position: absolute;
+    inset: 0;
 
-    display: none;
+    display: block;
 
+    background: linear-gradient(to bottom,
+            rgba(7, 18, 48, 0.82) 0%,
+            rgba(7, 25, 58, 0.58) 38%,
+            rgba(7, 30, 65, 0.28) 70%,
+            rgba(7, 30, 65, 0.08) 100%);
+
+    z-index: 1;
+
+    pointer-events: none;
 }
 
 
@@ -741,14 +701,9 @@
 ========================================= */
 
 .home-search {
-
     position: relative;
-
-    width: min(100%,
-            900px);
-
-    z-index: 20;
-
+    width: min(100%, 900px);
+    z-index: 1000;
 }
 
 
@@ -948,38 +903,35 @@
 }
 
 /* =========================================
-   RECOMENDACIONES DEL BUSCADOR
+   RESULTADOS DEL BUSCADOR
 ========================================= */
 
 .home-search__suggestions {
-
     position: absolute;
 
     top: calc(100% + 8px);
-
     left: 0;
 
     width: 100%;
 
-    max-height: 360px;
+    max-height: 320px;
 
     overflow-y: auto;
+    overflow-x: hidden;
 
-    background: #ffffff;
+    box-sizing: border-box;
 
-    border: 1px solid #d4d4d4;
+    background: #FFFFFF;
 
+    border: 1px solid #CECECE;
     border-radius: 12px;
 
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 
     text-align: left;
 
-    z-index: 50;
-
+    z-index: 9999;
 }
-
 
 /* =========================================
    CADA RECOMENDACIÓN
@@ -1436,7 +1388,7 @@
 
     overflow: visible;
 
-    padding: 70px 24px;
+    padding: 50px 24px 70px;
 
 
     /* =====================================
@@ -1740,6 +1692,7 @@
 
 /* =========================================
    LISTA DE RECOMENDACIONES
+   RECORTADA ANTES DEL FOOTER
 ========================================= */
 
 .home-search__suggestions {
@@ -1752,28 +1705,22 @@
 
     width: 100%;
 
-    max-height: 360px;
+    max-height: var(--home-suggestions-max-height,
+            320px);
 
     overflow-y: auto;
+    overflow-x: hidden;
 
-    /* Fondo completamente sólido */
+    box-sizing: border-box;
 
     background: #FFFFFF;
-
-    /* Borde */
 
     border: 1px solid #CECECE;
 
     border-radius: 12px;
 
-    /* Sombra */
-
     box-shadow:
         0 12px 30px rgba(0, 0, 0, 0.22);
-
-    /* Muy importante:
-       queda por encima del Hero
-       y del selector de niveles */
 
     z-index: 9999;
 
@@ -2502,34 +2449,27 @@
 ========================================= */
 
 .news-search-suggestion {
-
     width: 100%;
-
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 18px;
 
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 3px;
-
-    padding: 12px 16px;
+    box-sizing: border-box;
 
     border: 0;
-
-    border-bottom:
-        1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 
     background: var(--color-white);
-
     color: var(--color-dark);
 
     font-family: "Montserrat", sans-serif;
-
     text-align: left;
-
     cursor: pointer;
 
+    transition:
+        background-color 0.15s ease;
 }
 
 .news-search-suggestion:last-child {
@@ -2542,6 +2482,12 @@
 
     background: var(--color-soft-blue);
 
+}
+
+.news-search-suggestion__info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
 }
 
 
@@ -2578,6 +2524,65 @@
 
 }
 
+/* =========================================
+   NIVEL
+========================================= */
+
+.news-search-suggestion__level {
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   BÁSICO
+========================================= */
+
+.news-search-suggestion__level.nivel-basico {
+
+    background: #008100;
+    color: #FFFFFF;
+
+}
+
+
+/* =========================================
+   INTERMEDIO
+========================================= */
+
+.news-search-suggestion__level.nivel-intermedio {
+
+    background: #C99840;
+    color: #FFFFFF;
+
+}
+
+
+/* =========================================
+   AVANZADO
+========================================= */
+
+.news-search-suggestion__level.nivel-avanzado {
+
+    background: #8630E3;
+    color: #FFFFFF;
+
+}
 
 /* =========================================
    SIN RESULTADOS
@@ -2629,11 +2634,12 @@
 
 /* =========================================
    HEADER — NAVEGACIÓN DE CATEGORÍAS
-   MISMA INTERACCIÓN QUE EL HEADER PRINCIPAL
+   MISMO ESTILO QUE EL HEADER PRINCIPAL
 ========================================= */
 
 .main-navigation a {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -2644,20 +2650,34 @@
     background: transparent;
     color: #ffffff;
 
-    font-family: var(--font-family);
+    font-family: inherit;
     font-size: 14px;
-    font-weight: var(--weight);
+    font-weight: 500;
+
+    line-height: 1;
 
     text-decoration: none;
 
-    opacity: 1;
-
     transition:
         background-color 0.25s ease,
-        color 0.25s ease,
-        opacity 0.25s ease;
+        color 0.25s ease;
 }
 
+
+/* Hover */
+
+.main-navigation a:hover {
+    background: #ffffff;
+    color: var(--color-dark);
+}
+
+
+/* Página activa */
+
+.main-navigation a.active {
+    background: #ffffff;
+    color: var(--color-dark);
+}
 
 /* =========================================
    HOVER
@@ -3222,313 +3242,165 @@
     z-index: 999;
 }
 
-/* =========================================================
+
+/* ---------------------------------------------------------
    TABLET
-   901px — 1100px
-   ========================================================= */
+   Hasta 1000px
+--------------------------------------------------------- */
 
-@media (max-width: 1100px) {
-
-    .site-header .header-container {
-
-        gap: 22px;
-
-    }
-
-
-    .site-header .main-nav ul,
-    .site-header .main-navigation ul {
-
-        gap: 18px;
-
-    }
-
-
-    .site-header .main-nav a,
-    .site-header .main-navigation a {
-
-        font-size: 14px;
-
-    }
-
-
-    .term-header-search,
-    .news-header-search {
-
-        max-width: 440px;
-
-    }
-
-}
-
-
-/* =========================================================
-   TABLET PEQUEÑA
-   761px — 900px
-   ========================================================= */
-
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
     .site-header .header-container {
-
+        display: flex;
         flex-wrap: wrap;
-
-        row-gap: 14px;
-
+        gap: 22px;
+        padding: 16px 0;
     }
-
-
-    /* Logo */
-
-    .site-header .logo {
-
-        flex: 0 0 58px;
-
-    }
-
-
-    /* Navegación */
-
-    .site-header .main-nav,
-    .site-header .main-navigation {
-
-        margin-left: auto;
-
-    }
-
 
     .site-header .main-nav ul,
     .site-header .main-navigation ul {
-
         gap: 14px;
-
     }
-
-
-    /* Buscador de término / noticias */
 
     .term-header-search,
     .news-header-search {
-
         order: 3;
-
         width: 100%;
-
         max-width: none;
-
         flex: 1 0 100%;
-
         margin: 0;
-
     }
 
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    MÓVIL
    Hasta 760px
-   ========================================================= */
+--------------------------------------------------------- */
 
 @media (max-width: 760px) {
 
-    /* -----------------------------------------------------
-       HEADER
-    ----------------------------------------------------- */
+    /* CONTENEDOR */
 
     .site-header .header-container {
-
         width: calc(100% - 32px);
-
         min-height: 70px;
 
         display: flex;
-
         flex-wrap: wrap;
 
         align-items: center;
-
         justify-content: space-between;
 
-        column-gap: 12px;
-
+        column-gap: 10px;
         row-gap: 12px;
 
         padding-top: 12px;
-
         padding-bottom: 12px;
-
     }
 
 
-    /* -----------------------------------------------------
-       LOGO
-    ----------------------------------------------------- */
+    /* LOGO */
 
     .site-header .logo {
-
         width: 52px;
-
         height: 52px;
-
         flex: 0 0 52px;
-
+        margin: 0;
     }
-
 
     .site-header .logo img {
-
         width: 46px;
-
         height: 46px;
-
         max-width: 46px;
-
         max-height: 46px;
-
     }
 
 
-    /* -----------------------------------------------------
-       NAVEGACIÓN
-    ----------------------------------------------------- */
+    /* NAVEGACIÓN */
 
     .site-header .main-nav,
     .site-header .main-navigation {
-
         width: auto;
-
+        flex: 1 1 auto;
         margin-left: auto;
-
-        flex: 0 1 auto;
-
     }
-
 
     .site-header .main-nav ul,
     .site-header .main-navigation ul {
-
         display: flex;
 
         align-items: center;
-
         justify-content: flex-end;
 
         flex-wrap: nowrap;
-
         gap: 8px;
 
         margin: 0;
-
         padding: 0;
-
     }
-
 
     .site-header .main-nav li,
     .site-header .main-navigation li {
-
         margin: 0;
-
         padding: 0;
-
     }
-
 
     .site-header .main-nav a,
     .site-header .main-navigation a {
-
         display: inline-flex;
 
         align-items: center;
-
         justify-content: center;
 
         min-height: 38px;
-
         padding: 9px 10px;
 
         border-radius: 20px;
 
         font-size: 13px;
-
         line-height: 1;
 
         white-space: nowrap;
-
     }
 
-
-    /* -----------------------------------------------------
-       ESTADO ACTIVO
-    ----------------------------------------------------- */
-
-    .site-header .main-nav a.active,
-    .site-header .main-navigation a.active {
-
-        padding-left: 13px;
-
-        padding-right: 13px;
-
-    }
-
-
-    /* -----------------------------------------------------
-       BUSCADORES DEL HEADER
-       Término / Noticias
-    ----------------------------------------------------- */
+    /* BUSCADOR DE TÉRMINO / NOTICIAS */
 
     .term-header-search,
     .news-header-search {
-
         order: 3;
 
         width: 100%;
-
         max-width: none;
 
         flex: 0 0 100%;
 
         margin: 0;
-
     }
-
 
     .term-header-search .search-box,
     .news-header-search .search-box {
-
         width: 100%;
-
     }
-
 
     .term-header-search .search-box input,
     .news-header-search .search-box input {
-
         width: 100%;
-
         min-width: 0;
-
     }
 
 
-    /* -----------------------------------------------------
-       RECOMENDACIONES DEL BUSCADOR
-    ----------------------------------------------------- */
+    /* RECOMENDACIONES */
 
     .header-search-suggestions,
     .news-search-suggestions {
-
         width: 100%;
-
         max-width: 100%;
-
         max-height: 280px;
-
     }
 
 }
-
 
 /* =========================================================
    MÓVIL PEQUEÑO
@@ -3586,16 +3458,6 @@
         padding: 8px 7px;
 
         font-size: 12px;
-
-    }
-
-
-    .site-header .main-nav a.active,
-    .site-header .main-navigation a.active {
-
-        padding-left: 10px;
-
-        padding-right: 10px;
 
     }
 
@@ -3764,32 +3626,112 @@
     }
 
 }
+/* =========================================================
+   HEADER — IGUALAR NAVEGACIÓN EN TODAS LAS PÁGINAS
+   ========================================================= */
 
-/* =========================================
-   TÉRMINO + NOTICIAS
-   HEADER MÓVIL
-========================================= */
+.site-header .main-nav a,
+.site-header .main-navigation a {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+
+    text-decoration: none;
+}
+
+
+/* MÓVIL */
 
 @media (max-width: 760px) {
 
-    .term-site-header .header-container,
-    .news-site-header .header-container {
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+        min-height: 38px;
 
-        display: flex;
+        padding: 9px 10px;
 
-        flex-direction: row;
+        font-size: 13px;
+        font-weight: 500;
 
-        flex-wrap: wrap;
+        line-height: 1;
+    }
 
-        align-items: center;
+}
+/* =========================================================
+   HEADER — CATÁLOGO
+   MISMA ESTRUCTURA QUE INICIO
+   ========================================================= */
 
-        justify-content: space-between;
+.site-header:not(.term-site-header):not(.news-site-header) .header-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* NAVEGACIÓN */
+
+.site-header:not(.term-site-header):not(.news-site-header) .main-nav {
+    display: flex;
+
+    align-items: center;
+
+    width: auto;
+
+    margin-left: auto;
+
+    flex: 0 0 auto;
+}
+
+
+.site-header:not(.term-site-header):not(.news-site-header) .main-nav ul {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 24px;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ENLACES */
+
+.site-header:not(.term-site-header):not(.news-site-header) .main-nav a {
+    white-space: nowrap;
+}
+/* =========================================================
+   HEADER MÓVIL — ESTRUCTURA ÚNICA PARA TODO EL SITIO
+   Referencia: header de Noticias
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .site-header .header-container {
         width: calc(100% - 32px);
 
-        column-gap: 10px;
+        min-height: 70px;
 
-        row-gap: 12px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 10px;
+
+        padding: 10px 0;
     }
 
 
@@ -3797,18 +3739,25 @@
        ISOTIPO
     ========================= */
 
-    .term-site-header .logo,
-    .news-site-header .logo {
+    .site-header .logo {
+        width: 48px;
+        height: 48px;
 
-        order: 1;
-
-        width: 52px;
-
-        height: 52px;
-
-        flex: 0 0 52px;
+        flex: 0 0 48px;
 
         margin: 0;
+    }
+
+    .site-header .logo img {
+        display: block;
+
+        width: 44px;
+        height: 44px;
+
+        max-width: 44px;
+        max-height: 44px;
+
+        object-fit: contain;
     }
 
 
@@ -3816,11 +3765,8 @@
        NAVEGACIÓN
     ========================= */
 
-    .term-site-header .main-nav,
-    .news-site-header .main-nav {
-
-        order: 2;
-
+    .site-header .main-nav,
+    .site-header .main-navigation {
         width: auto;
 
         flex: 1 1 auto;
@@ -3828,37 +3774,125 @@
         margin: 0;
     }
 
-
-    .term-site-header .main-nav ul,
-    .news-site-header .main-nav ul {
-
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
         display: flex;
 
         align-items: center;
-
         justify-content: flex-end;
 
         flex-wrap: nowrap;
 
-        gap: 8px;
+        gap: 6px;
 
         margin: 0;
-
         padding: 0;
+
+        list-style: none;
     }
 
 
     /* =========================
-       BUSCADOR
+       BOTONES
     ========================= */
 
-    .term-site-header .term-header-search,
-    .news-site-header .news-header-search {
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+        display: inline-flex;
 
+        align-items: center;
+        justify-content: center;
+
+        min-height: 38px;
+
+        padding: 8px 9px;
+
+        border-radius: 20px;
+
+        font-size: 13px;
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+
+    /* BOTÓN ACTIVO */
+
+    .site-header .main-nav a.active,
+    .site-header .main-navigation a.active {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   360px / 375px
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .site-header .header-container {
+        width: calc(100% - 24px);
+
+        gap: 8px;
+    }
+
+
+    .site-header .logo {
+        width: 46px;
+        height: 46px;
+
+        flex: 0 0 46px;
+    }
+
+    .site-header .logo img {
+        width: 42px;
+        height: 42px;
+
+        max-width: 42px;
+        max-height: 42px;
+    }
+
+
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+        gap: 4px;
+    }
+
+
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+        min-height: 36px;
+
+        padding: 8px 7px;
+
+        font-size: 12px;
+    }
+
+
+    .site-header .main-nav a.active,
+    .site-header .main-navigation a.active {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+/* =========================================================
+   HEADER — BUSCADOR DEBAJO DE LA NAVEGACIÓN
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .site-header .header-container {
+        flex-wrap: wrap;
+    }
+
+    .site-header .term-header-search,
+    .site-header .news-header-search {
         order: 3;
 
         width: 100%;
-
         max-width: none;
 
         flex: 0 0 100%;
@@ -3866,11 +3900,107 @@
         margin: 0;
     }
 
-
-    .term-site-header .term-header-search .search-box,
-    .news-site-header .news-header-search .search-box {
-
+    .site-header .term-header-search .search-box,
+    .site-header .news-header-search .search-box {
         width: 100%;
     }
 
+    .site-header .term-header-search input,
+    .site-header .news-header-search input {
+        width: 100%;
+        min-width: 0;
+    }
+}
+/* =========================================================
+   HEADER — MISMA NAVEGACIÓN EN TODAS LAS PÁGINAS
+   Inicio / Categorías / Noticias
+========================================================= */
+
+@media (max-width: 760px) {
+
+    /* Contenedor de la navegación */
+    .site-header .main-nav,
+    .site-header .main-navigation {
+        width: auto;
+        flex: 0 1 auto;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+
+    /* Los 3 enlaces */
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+        display: flex;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /* Enlaces */
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 38px;
+
+        padding: 9px 10px;
+
+        border-radius: 20px;
+
+        font-size: 13px;
+        font-weight: 500;
+
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+
+    /* Enlace activo */
+    .site-header .main-nav a.active,
+    .site-header .main-navigation a.active {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+}
+
+
+/* =========================================================
+   360–400px
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .site-header .main-nav ul,
+    .site-header .main-navigation ul {
+        gap: 6px;
+    }
+
+    .site-header .main-nav a,
+    .site-header .main-navigation a {
+        min-height: 36px;
+
+        padding: 8px 8px;
+
+        font-size: 12px;
+    }
+
+    .site-header .main-nav a.active,
+    .site-header .main-navigation a.active {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
 }

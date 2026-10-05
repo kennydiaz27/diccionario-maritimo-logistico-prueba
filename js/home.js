@@ -33,183 +33,183 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     // ==========================================
-// ESCRIBIR EN EL BUSCADOR
-// ==========================================
+    // ESCRIBIR EN EL BUSCADOR
+    // ==========================================
 
-let indiceSeleccionado = -1;
+    let indiceSeleccionado = -1;
 
-input.addEventListener("input", () => {
+    input.addEventListener("input", () => {
 
-    const texto = input.value.trim();
+        const texto = input.value.trim();
 
-    // Cada vez que cambia la búsqueda,
-    // reiniciamos la selección del teclado.
-    indiceSeleccionado = -1;
+        // Cada vez que cambia la búsqueda,
+        // reiniciamos la selección del teclado.
+        indiceSeleccionado = -1;
 
-    actualizarBotonLimpiar(texto);
+        actualizarBotonLimpiar(texto);
 
-    // Si está vacío, ocultamos recomendaciones
-    if (!texto) {
+        // Si está vacío, ocultamos recomendaciones
+        if (!texto) {
 
-        ocultarRecomendaciones();
+            ocultarRecomendaciones();
 
-        return;
-    }
-
-    // Buscar recomendaciones
-    mostrarRecomendaciones(datos, texto);
-
-});
-
-
-// ==========================================
-// NAVEGACIÓN CON TECLADO
-// ==========================================
-
-input.addEventListener("keydown", (evento) => {
-
-    const recomendaciones =
-        Array.from(
-            suggestions.querySelectorAll(
-                ".home-search__suggestion"
-            )
-        );
-
-
-    // ======================================
-    // FLECHA ABAJO
-    // ======================================
-
-    if (evento.key === "ArrowDown") {
-
-        if (!recomendaciones.length) {
             return;
         }
 
-        evento.preventDefault();
+        // Buscar recomendaciones
+        mostrarRecomendaciones(datos, texto);
 
-        indiceSeleccionado++;
-
-        if (
-            indiceSeleccionado >=
-            recomendaciones.length
-        ) {
-
-            indiceSeleccionado = 0;
-
-        }
-
-        actualizarSeleccionTeclado(
-            recomendaciones
-        );
-
-        return;
-    }
+    });
 
 
-    // ======================================
-    // FLECHA ARRIBA
-    // ======================================
+    // ==========================================
+    // NAVEGACIÓN CON TECLADO
+    // ==========================================
 
-    if (evento.key === "ArrowUp") {
+    input.addEventListener("keydown", (evento) => {
 
-        if (!recomendaciones.length) {
-            return;
-        }
-
-        evento.preventDefault();
-
-        indiceSeleccionado--;
-
-        if (indiceSeleccionado < 0) {
-
-            indiceSeleccionado =
-                recomendaciones.length - 1;
-
-        }
-
-        actualizarSeleccionTeclado(
-            recomendaciones
-        );
-
-        return;
-    }
+        const recomendaciones =
+            Array.from(
+                suggestions.querySelectorAll(
+                    ".home-search__suggestion"
+                )
+            );
 
 
-    // ======================================
-    // ENTER
-    // ======================================
+        // ======================================
+        // FLECHA ABAJO
+        // ======================================
 
-    if (evento.key === "Enter") {
+        if (evento.key === "ArrowDown") {
 
-        if (
-            indiceSeleccionado >= 0 &&
-            recomendaciones[indiceSeleccionado]
-        ) {
+            if (!recomendaciones.length) {
+                return;
+            }
 
             evento.preventDefault();
 
-            recomendaciones[
-                indiceSeleccionado
-            ].click();
-
-        }
-
-        return;
-    }
-
-
-    // ======================================
-    // ESC
-    // ======================================
-
-    if (evento.key === "Escape") {
-
-        ocultarRecomendaciones();
-
-        indiceSeleccionado = -1;
-
-    }
-
-});
-
-
-// ==========================================
-// ACTUALIZAR SELECCIÓN VISUAL
-// ==========================================
-
-function actualizarSeleccionTeclado(
-    recomendaciones
-) {
-
-    recomendaciones.forEach(
-        (elemento, indice) => {
+            indiceSeleccionado++;
 
             if (
-                indice ===
-                indiceSeleccionado
+                indiceSeleccionado >=
+                recomendaciones.length
             ) {
 
-                elemento.classList.add(
-                    "is-keyboard-selected"
-                );
-
-                elemento.scrollIntoView({
-                    block: "nearest"
-                });
-
-            } else {
-
-                elemento.classList.remove(
-                    "is-keyboard-selected"
-                );
+                indiceSeleccionado = 0;
 
             }
 
-        }
-    );
+            actualizarSeleccionTeclado(
+                recomendaciones
+            );
 
-}
+            return;
+        }
+
+
+        // ======================================
+        // FLECHA ARRIBA
+        // ======================================
+
+        if (evento.key === "ArrowUp") {
+
+            if (!recomendaciones.length) {
+                return;
+            }
+
+            evento.preventDefault();
+
+            indiceSeleccionado--;
+
+            if (indiceSeleccionado < 0) {
+
+                indiceSeleccionado =
+                    recomendaciones.length - 1;
+
+            }
+
+            actualizarSeleccionTeclado(
+                recomendaciones
+            );
+
+            return;
+        }
+
+
+        // ======================================
+        // ENTER
+        // ======================================
+
+        if (evento.key === "Enter") {
+
+            if (
+                indiceSeleccionado >= 0 &&
+                recomendaciones[indiceSeleccionado]
+            ) {
+
+                evento.preventDefault();
+
+                recomendaciones[
+                    indiceSeleccionado
+                ].click();
+
+            }
+
+            return;
+        }
+
+
+        // ======================================
+        // ESC
+        // ======================================
+
+        if (evento.key === "Escape") {
+
+            ocultarRecomendaciones();
+
+            indiceSeleccionado = -1;
+
+        }
+
+    });
+
+
+    // ==========================================
+    // ACTUALIZAR SELECCIÓN VISUAL
+    // ==========================================
+
+    function actualizarSeleccionTeclado(
+        recomendaciones
+    ) {
+
+        recomendaciones.forEach(
+            (elemento, indice) => {
+
+                if (
+                    indice ===
+                    indiceSeleccionado
+                ) {
+
+                    elemento.classList.add(
+                        "is-keyboard-selected"
+                    );
+
+                    elemento.scrollIntoView({
+                        block: "nearest"
+                    });
+
+                } else {
+
+                    elemento.classList.remove(
+                        "is-keyboard-selected"
+                    );
+
+                }
+
+            }
+        );
+
+    }
 
 
     // ==========================================
@@ -378,26 +378,69 @@ function actualizarSeleccionTeclado(
                     b.item.termino || ""
                 );
 
-            const empiezaA =
-                terminoA.startsWith(busqueda);
+            const inglesA =
+                normalizarTexto(
+                    a.item.ingles || ""
+                );
 
-            const empiezaB =
-                terminoB.startsWith(busqueda);
+            const inglesB =
+                normalizarTexto(
+                    b.item.ingles || ""
+                );
+
+            const siglaA =
+                normalizarTexto(
+                    a.item.sigla ||
+                    a.item["Sigla / Abreviatura"] ||
+                    ""
+                );
+
+            const siglaB =
+                normalizarTexto(
+                    b.item.sigla ||
+                    b.item["Sigla / Abreviatura"] ||
+                    ""
+                );
 
 
-            // Primero los que comienzan
-            // exactamente con lo escrito
+            // ======================================
+            // PRIORIDAD DE COINCIDENCIA
+            // ======================================
 
-            if (empiezaA && !empiezaB) {
-                return -1;
+            const prioridadA =
+                terminoA.startsWith(busqueda)
+                    ? 1
+                    : siglaA.startsWith(busqueda)
+                        ? 2
+                        : inglesA.startsWith(busqueda)
+                            ? 3
+                            : terminoA.includes(busqueda)
+                                ? 4
+                                : 5;
+
+
+            const prioridadB =
+                terminoB.startsWith(busqueda)
+                    ? 1
+                    : siglaB.startsWith(busqueda)
+                        ? 2
+                        : inglesB.startsWith(busqueda)
+                            ? 3
+                            : terminoB.includes(busqueda)
+                                ? 4
+                                : 5;
+
+
+            if (prioridadA !== prioridadB) {
+
+                return prioridadA - prioridadB;
+
             }
 
-            if (!empiezaA && empiezaB) {
-                return 1;
-            }
 
-
-            // Después orden alfabético
+            // ======================================
+            // ORDEN ALFABÉTICO
+            // ======================================
 
             return terminoA.localeCompare(
                 terminoB,
@@ -522,9 +565,8 @@ function actualizarSeleccionTeclado(
                     </strong>
 
 
-                    ${
-                        ingles
-                            ? `
+                    ${ingles
+                    ? `
 
                                 <span class="home-search__suggestion-english">
 
@@ -533,8 +575,8 @@ function actualizarSeleccionTeclado(
                                 </span>
 
                               `
-                            : ""
-                    }
+                    : ""
+                }
 
                 </span>
 
@@ -556,11 +598,24 @@ function actualizarSeleccionTeclado(
                 "click",
                 () => {
 
-                    /*
-                     * En lugar de depender únicamente
-                     * del ID, enviamos la posición exacta
-                     * del registro dentro del JSON.
-                     */
+                    // ==========================================
+                    // INDICAR QUE EL TÉRMINO VIENE DEL INICIO
+                    // ==========================================
+
+                    sessionStorage.setItem(
+                        "restaurarCatalogo",
+                        "false"
+                    );
+
+                    sessionStorage.setItem(
+                        "paginaAnteriorTermino",
+                        window.location.href
+                    );
+
+
+                    // ==========================================
+                    // ABRIR EL TÉRMINO
+                    // ==========================================
 
                     window.location.href =
                         `pages/termino.html?registro=${indice}`;
@@ -576,10 +631,13 @@ function actualizarSeleccionTeclado(
         });
 
 
-        // Mostrar recomendaciones
-
         suggestions.hidden = false;
 
+        // Ajustar la altura disponible
+        // antes de llegar al footer.
+        requestAnimationFrame(() => {
+            ajustarAlturaRecomendaciones();
+        });
     }
 
 
@@ -593,6 +651,41 @@ function actualizarSeleccionTeclado(
 
         suggestions.innerHTML = "";
 
+    }
+    // ==========================================
+    // AJUSTAR ALTURA DE RECOMENDACIONES
+    // PARA NO INVADIR EL FOOTER
+    // ==========================================
+
+    function ajustarAlturaRecomendaciones() {
+
+        const footer = document.querySelector(".site-footer");
+
+        if (!footer || !suggestions || suggestions.hidden) {
+            return;
+        }
+
+        const suggestionsRect =
+            suggestions.getBoundingClientRect();
+
+        const footerRect =
+            footer.getBoundingClientRect();
+
+        // Espacio disponible entre la caja
+        // de recomendaciones y el footer.
+        const espacioDisponible =
+            footerRect.top -
+            suggestionsRect.top -
+            16;
+
+        // Evitamos valores negativos.
+        const alturaMaxima =
+            Math.max(80, espacioDisponible);
+
+        suggestions.style.setProperty(
+            "--home-suggestions-max-height",
+            `${alturaMaxima}px`
+        );
     }
 
 
@@ -672,5 +765,20 @@ function actualizarSeleccionTeclado(
             );
 
     }
+    // ==========================================
+    // ACTUALIZAR AL CAMBIAR EL TAMAÑO
+    // DE LA VENTANA
+    // ==========================================
 
+    window.addEventListener("resize", () => {
+
+        if (!suggestions.hidden) {
+
+            requestAnimationFrame(() => {
+                ajustarAlturaRecomendaciones();
+            });
+
+        }
+
+    });
 });

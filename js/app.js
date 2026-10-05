@@ -43,28 +43,340 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
 
     const nivelURL =
-        parametrosURL.get("nivel");
+    parametrosURL.get("nivel");
+
+const origenURL =
+    parametrosURL.get("origen");
+
+
+// ==========================================
+// SI VENIMOS DESDE INICIO
+// ==========================================
+
+if (origenURL === "inicio") {
+
+    // No debemos recuperar el estado anterior
+    // del catálogo.
+
+    sessionStorage.removeItem(
+        "catalogoEstado"
+    );
+
+    sessionStorage.setItem(
+        "restaurarCatalogo",
+        "false"
+    );
+
+    sessionStorage.removeItem(
+        "paginaAnteriorTermino"
+    );
+
+
+    // ==========================================
+    // APLICAR NIVEL SELECCIONADO DESDE INICIO
+    // ==========================================
 
     if (nivelURL) {
 
-        filtros.nivel = nivelURL;
+        filtros.nivel =
+            nivelURL;
 
-        const selectorNivel =
-            document.querySelector("#levelFilter");
+    } else {
 
-        if (selectorNivel) {
-            selectorNivel.value = nivelURL;
-        }
-
+        filtros.nivel =
+            "all";
     }
 
-    inicializarEventos();
 
+    // ==========================================
+    // LIMPIAR LOS DEMÁS FILTROS
+    // ==========================================
+
+    filtros.categoria =
+        "all";
+
+    filtros.subcategoria =
+        "all";
+
+    filtros.letra =
+        "all";
+
+    filtros.busqueda =
+        "";
+
+}
+
+
+// ==========================================
+// SI VENIMOS DEL CATÁLOGO
+// ==========================================
+
+else {
+
+    restaurarEstadoCatalogo();
+
+}
+    // ==========================================
+    // RESTAURAR ESTADO DEL CATÁLOGO
+    // ==========================================
+
+    function restaurarEstadoCatalogo() {
+
+        const estadoGuardado =
+            sessionStorage.getItem("catalogoEstado");
+
+
+        if (!estadoGuardado) {
+
+            console.log(
+                "ℹ️ No existe un estado anterior del catálogo."
+            );
+
+            return;
+        }
+
+
+        try {
+
+            const estado =
+                JSON.parse(estadoGuardado);
+
+
+            // ==========================================
+            // RESTAURAR FILTROS
+            // ==========================================
+
+            if (estado.filtros) {
+
+                filtros.categoria =
+                    estado.filtros.categoria || "all";
+
+                filtros.nivel =
+                    estado.filtros.nivel || "all";
+
+                filtros.subcategoria =
+                    estado.filtros.subcategoria || "all";
+
+                filtros.letra =
+                    estado.filtros.letra || "all";
+
+                filtros.busqueda =
+                    estado.filtros.busqueda || "";
+            }
+
+
+            // ==========================================
+            // RESTAURAR PÁGINA
+            // ==========================================
+
+            paginaActual =
+                Number(estado.paginaActual) || 1;
+
+
+            console.log(
+                "🔄 Estado del catálogo restaurado:",
+                estado
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "❌ Error restaurando estado del catálogo:",
+                error
+            );
+
+            sessionStorage.removeItem(
+                "catalogoEstado"
+            );
+        }
+    }
+    inicializarEventos();
     inicializarMenuSubcategorias();
+
+    restaurarInterfazFiltros();
 
     mostrarResultados();
 
 });
+
+
+// ==========================================
+// RESTAURAR INTERFAZ DE FILTROS
+// ==========================================
+
+function restaurarInterfazFiltros() {
+
+    // ==========================================
+    // BÚSQUEDA
+    // ==========================================
+
+    const buscador =
+        document.querySelector("#catalogSearch");
+
+    if (buscador) {
+
+        buscador.value =
+            filtros.busqueda || "";
+    }
+
+
+    // Actualizar visualmente la X de búsqueda
+    const botonLimpiarBusqueda =
+        document.querySelector("#catalogSearchClear");
+
+    if (botonLimpiarBusqueda) {
+
+        if (
+            filtros.busqueda &&
+            filtros.busqueda.trim() !== ""
+        ) {
+
+            botonLimpiarBusqueda.classList.add(
+                "is-visible"
+            );
+
+        } else {
+
+            botonLimpiarBusqueda.classList.remove(
+                "is-visible"
+            );
+        }
+    }
+
+    // ==========================================
+    // CATEGORÍA PRINCIPAL
+    // ==========================================
+
+    const botonesCategoria =
+        document.querySelectorAll(
+            ".category-button"
+        );
+
+    botonesCategoria.forEach(boton => {
+
+        boton.classList.remove("active");
+
+        if (
+            boton.dataset.category ===
+            filtros.categoria
+        ) {
+            boton.classList.add("active");
+        }
+
+    });
+
+
+    // ==========================================
+    // NIVEL
+    // ==========================================
+
+    const levelSelected =
+        document.querySelector("#levelSelected");
+
+    const levelOptions =
+        document.querySelectorAll(
+            ".level-option"
+        );
+
+    levelOptions.forEach(opcion => {
+
+        opcion.classList.remove("active");
+
+        if (
+            opcion.dataset.level ===
+            filtros.nivel
+        ) {
+
+            opcion.classList.add("active");
+
+            if (levelSelected) {
+
+                levelSelected.textContent =
+                    opcion.textContent.trim();
+            }
+        }
+
+    });
+
+
+    // ==========================================
+    // LETRA
+    // ==========================================
+
+    const botonesLetra =
+        document.querySelectorAll(
+            ".letter-button"
+        );
+
+    botonesLetra.forEach(boton => {
+
+        boton.classList.remove("active");
+
+        if (
+            boton.dataset.letter ===
+            filtros.letra
+        ) {
+
+            boton.classList.add("active");
+        }
+
+    });
+
+
+    // ==========================================
+    // SUBCATEGORÍAS
+    // ==========================================
+
+    actualizarMenuSubcategorias();
+
+
+    // ==========================================
+    // VOLVER A SELECCIONAR SUBCATEGORÍA
+    // ==========================================
+
+    if (
+        filtros.subcategoria !== "all"
+    ) {
+
+        const textoSeleccionado =
+            document.querySelector(
+                "#subcategorySelected"
+            );
+
+        if (textoSeleccionado) {
+
+            textoSeleccionado.textContent =
+                filtros.subcategoria;
+        }
+
+        const opcionSubcategoria =
+            document.querySelector(
+                `.subcategory-option[data-subcategory="${CSS.escape(
+                    filtros.subcategoria
+                )}"]`
+            );
+
+        if (opcionSubcategoria) {
+
+            document
+                .querySelectorAll(
+                    ".subcategory-option"
+                )
+                .forEach(opcion => {
+
+                    opcion.classList.remove(
+                        "active"
+                    );
+
+                });
+
+            opcionSubcategoria.classList.add(
+                "active"
+            );
+        }
+    }
+}
 
 
 // ==========================================
@@ -75,30 +387,79 @@ function inicializarEventos() {
 
 
     // ==========================================
-    // BÚSQUEDA
+    // BÚSQUEDA DEL CATÁLOGO
     // ==========================================
 
     const buscador =
         document.querySelector("#catalogSearch");
 
+    const botonLimpiarBusqueda =
+        document.querySelector("#catalogSearchClear");
+
+
+    // ==========================================
+    // ACTUALIZAR VISIBILIDAD DE LA X
+    // ==========================================
+
+    function actualizarBotonLimpiarBusqueda() {
+
+        if (!botonLimpiarBusqueda) {
+            return;
+        }
+
+        const tieneTexto =
+            buscador &&
+            buscador.value.trim() !== "";
+
+        if (tieneTexto) {
+
+            botonLimpiarBusqueda.classList.add(
+                "is-visible"
+            );
+
+        } else {
+
+            botonLimpiarBusqueda.classList.remove(
+                "is-visible"
+            );
+
+        }
+    }
+
+
+    // ==========================================
+    // ESCRIBIR EN EL BUSCADOR
+    // ==========================================
 
     if (buscador) {
 
-        buscador.addEventListener("input", () => {
+        buscador.addEventListener(
+            "input",
+            () => {
 
-            filtros.busqueda =
-                buscador.value;
+                filtros.busqueda =
+                    buscador.value;
 
-            textoBusqueda =
-                normalizarTexto(
-                    filtros.busqueda
-                );
+                textoBusqueda =
+                    normalizarTexto(
+                        filtros.busqueda
+                    );
 
-            paginaActual = 1;
+                paginaActual = 1;
 
-            mostrarResultados();
 
-        });
+                // Actualizar X
+                actualizarBotonLimpiarBusqueda();
+
+
+                // IMPORTANTE:
+                // La búsqueda se aplica junto con
+                // categoría, nivel, subcategoría
+                // y letra.
+                mostrarResultados();
+
+            }
+        );
 
     }
 
@@ -144,7 +505,34 @@ function inicializarEventos() {
         );
 
     }
+    // ==========================================
+    // LIMPIAR BÚSQUEDA
+    // ==========================================
 
+    if (botonLimpiarBusqueda) {
+
+        botonLimpiarBusqueda.addEventListener(
+            "click",
+            () => {
+
+                buscador.value = "";
+
+                filtros.busqueda = "";
+
+                textoBusqueda = "";
+
+                paginaActual = 1;
+
+                actualizarBotonLimpiarBusqueda();
+
+                mostrarResultados();
+
+                buscador.focus();
+
+            }
+        );
+
+    }
 
     // ==========================================
     // CATEGORÍAS PRINCIPALES
@@ -239,86 +627,106 @@ function inicializarEventos() {
         levelTrigger
     ) {
 
-// ======================================
-// ABRIR / CERRAR
-// ======================================
+        // ======================================
+        // ABRIR / CERRAR
+        // ======================================
 
-// 🖱️ Abrir al pasar el mouse
-levelMenu.addEventListener(
-    "mouseenter",
-    () => {
+        // 🖱️ Abrir al pasar el mouse
+        levelMenu.addEventListener(
+            "mouseenter",
+            () => {
 
-        const subcategoryMenu =
-            document.querySelector(
-                "#subcategoryMenu"
-            );
+                // Solo ejecutar en dispositivos con mouse
+                if (
+                    !window.matchMedia(
+                        "(hover: hover) and (pointer: fine)"
+                    ).matches
+                ) {
+                    return;
+                }
 
-        if (subcategoryMenu) {
-            subcategoryMenu.classList.remove(
-                "open"
-            );
-        }
+                const subcategoryMenu =
+                    document.querySelector(
+                        "#subcategoryMenu"
+                    );
 
-        levelMenu.classList.add(
-            "open"
+                // Cerrar Subcategoría
+                if (subcategoryMenu) {
+                    subcategoryMenu.classList.remove(
+                        "open"
+                    );
+                }
+
+                // Abrir Nivel
+                levelMenu.classList.add(
+                    "open"
+                );
+
+            }
         );
 
-    }
-);
 
+        // 🖱️ Cerrar al sacar el mouse
+        levelMenu.addEventListener(
+            "mouseleave",
+            () => {
 
-// 🖱️ Cerrar al sacar el mouse
-levelMenu.addEventListener(
-    "mouseleave",
-    () => {
+                // Solo ejecutar en dispositivos con mouse
+                if (
+                    !window.matchMedia(
+                        "(hover: hover) and (pointer: fine)"
+                    ).matches
+                ) {
+                    return;
+                }
 
-        levelMenu.classList.remove(
-            "open"
+                levelMenu.classList.remove(
+                    "open"
+                );
+
+            }
         );
 
-    }
-);
 
+        // 👆 Abrir / cerrar al hacer clic o tocar
+        levelTrigger.addEventListener(
+            "click",
+            (evento) => {
 
-// 👆 Abrir / cerrar al hacer clic o tocar
-levelTrigger.addEventListener(
-    "click",
-    (evento) => {
+                evento.stopPropagation();
 
-        evento.stopPropagation();
+                const estaAbierto =
+                    levelMenu.classList.contains("open");
 
-        const estaAbierto =
-            levelMenu.classList.contains("open");
+                const subcategoryMenu =
+                    document.querySelector(
+                        "#subcategoryMenu"
+                    );
 
-        const subcategoryMenu =
-            document.querySelector(
-                "#subcategoryMenu"
-            );
+                // Cerrar subcategorías
+                if (subcategoryMenu) {
+                    subcategoryMenu.classList.remove(
+                        "open"
+                    );
+                }
 
-        // Cerrar subcategorías
-        if (subcategoryMenu) {
-            subcategoryMenu.classList.remove(
-                "open"
-            );
-        }
+                // Alternar nivel
+                if (estaAbierto) {
 
-        // Alternar nivel
-        if (estaAbierto) {
+                    levelMenu.classList.remove(
+                        "open"
+                    );
 
-            levelMenu.classList.remove(
-                "open"
-            );
+                } else {
 
-        } else {
+                    levelMenu.classList.add(
+                        "open"
+                    );
 
-            levelMenu.classList.add(
-                "open"
-            );
+                }
 
-        }
-
-    }
-);
+            }
+        );
 
         // ======================================
         // SELECCIONAR NIVEL
@@ -496,83 +904,143 @@ function inicializarMenuSubcategorias() {
 
 
 
-// ==========================================
-// ABRIR / CERRAR SUBCATEGORÍA
-// ==========================================
+    // ==========================================
+    // ABRIR / CERRAR SUBCATEGORÍA
+    // ==========================================
 
-const subcategoryWrapper =
-    document.querySelector("#subcategoryMenu");
+    const subcategoryWrapper =
+        document.querySelector("#subcategoryMenu");
 
-if (subcategoryWrapper) {
+    if (subcategoryWrapper) {
 
-    // 🖱️ Abrir al pasar el mouse
-    subcategoryWrapper.addEventListener(
-        "mouseenter",
-        () => {
+        // 🖱️ Abrir / cerrar con mouse solamente en dispositivos con mouse
+        if (
+            window.matchMedia(
+                "(hover: hover) and (pointer: fine)"
+            ).matches
+        ) {
 
-            const levelMenu =
-                document.querySelector("#levelMenu");
+            // Abrir al pasar el mouse
+            subcategoryWrapper.addEventListener(
+                "mouseenter",
+                () => {
 
-            if (levelMenu) {
-                levelMenu.classList.remove("open");
-            }
+                    const levelMenu =
+                        document.querySelector(
+                            "#levelMenu"
+                        );
 
-            subcategoryWrapper.classList.add("open");
+                    if (levelMenu) {
+                        levelMenu.classList.remove(
+                            "open"
+                        );
+                    }
+
+                    subcategoryWrapper.classList.add(
+                        "open"
+                    );
+
+                }
+            );
+
+            // 🖱️ Abrir al pasar el mouse
+            subcategoryWrapper.addEventListener(
+                "mouseenter",
+                () => {
+
+                    // Solo ejecutar en dispositivos con mouse
+                    if (
+                        !window.matchMedia(
+                            "(hover: hover) and (pointer: fine)"
+                        ).matches
+                    ) {
+                        return;
+                    }
+
+                    const levelMenu =
+                        document.querySelector(
+                            "#levelMenu"
+                        );
+
+                    // Cerrar Nivel
+                    if (levelMenu) {
+                        levelMenu.classList.remove(
+                            "open"
+                        );
+                    }
+
+                    // Abrir Subcategoría
+                    subcategoryWrapper.classList.add(
+                        "open"
+                    );
+
+                }
+            );
+
+
+            // 🖱️ Cerrar al sacar el mouse
+            subcategoryWrapper.addEventListener(
+                "mouseleave",
+                () => {
+
+                    // Solo ejecutar en dispositivos con mouse
+                    if (
+                        !window.matchMedia(
+                            "(hover: hover) and (pointer: fine)"
+                        ).matches
+                    ) {
+                        return;
+                    }
+
+                    subcategoryWrapper.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
 
         }
-    );
 
 
-    // 🖱️ Cerrar al sacar el mouse
-    subcategoryWrapper.addEventListener(
-        "mouseleave",
-        () => {
+        // 👆 Abrir / cerrar al tocar
+        trigger.addEventListener(
+            "click",
+            (evento) => {
 
-            subcategoryWrapper.classList.remove("open");
+                evento.preventDefault();
+                evento.stopPropagation();
 
-        }
-    );
-
-
-    // 👆 Abrir / cerrar al tocar
-    trigger.addEventListener(
-        "click",
-        (evento) => {
-
-            evento.preventDefault();
-            evento.stopPropagation();
-
-            const estaAbierto =
-                subcategoryWrapper.classList.contains("open");
+                const estaAbierto =
+                    subcategoryWrapper.classList.contains("open");
 
 
-            // Cerrar Nivel de dificultad
-            const levelMenu =
-                document.querySelector("#levelMenu");
+                // Cerrar Nivel de dificultad
+                const levelMenu =
+                    document.querySelector("#levelMenu");
 
-            if (levelMenu) {
-                levelMenu.classList.remove("open");
-            }
+                if (levelMenu) {
+                    levelMenu.classList.remove("open");
+                }
 
 
-            // Abrir / cerrar Subcategoría
-            if (estaAbierto) {
+                // Abrir / cerrar Subcategoría
+                if (estaAbierto) {
 
-                subcategoryWrapper.classList.remove(
-                    "open"
-                );
+                    subcategoryWrapper.classList.remove(
+                        "open"
+                    );
 
-            } else {
+                } else {
 
-                subcategoryWrapper.classList.add(
-                    "open"
-                );
+                    subcategoryWrapper.classList.add(
+                        "open"
+                    );
+
+                }
 
             }
-
-        }
-    );
-}
+        );
+    }
 
 
     // ==========================================
@@ -733,19 +1201,20 @@ function actualizarMenuSubcategorias() {
 
 
     // ==========================================
-    // REINICIAR SUBCATEGORÍA
+    // RESTABLECER VISUALMENTE
     // ==========================================
 
-    filtros.subcategoria = "all";
+    // Solo mostramos "Todas las subcategorías"
+    // cuando realmente no hay una selección guardada.
 
+    if (filtros.subcategoria === "all") {
 
-    if (textoSeleccionado) {
+        if (textoSeleccionado) {
 
-        textoSeleccionado.textContent =
-            "Todas las subcategorías";
-
+            textoSeleccionado.textContent =
+                "Todas las subcategorías";
+        }
     }
-
 
     // ==========================================
     // TODOS

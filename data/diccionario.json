@@ -3150,20 +3150,6 @@
     "estructura": "estandar"
   },
   {
-    "id": "LOG-080",
-    "nivel": "Básico",
-    "termino": "Almacenaje",
-    "ingles": "Warehousing / Storage",
-    "tipo": "Término",
-    "categoria": "Logística Internacional",
-    "subcategoria": "Operaciones y Almacén",
-    "definicion_es": "Administración del espacio físico y gestión operativa de los almacenes para optimizar la operación.",
-    "definicion_en": "Physical space administration and operational management of warehouses to optimize operations.",
-    "fuente": "",
-    "vigencia": "",
-    "estructura": "estandar"
-  },
-  {
     "id": "LOG-081",
     "nivel": "Básico",
     "termino": "Almacenista",
