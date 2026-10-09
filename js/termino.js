@@ -411,7 +411,6 @@ function renderizarFichaConcepto(
 >
     ×
 </a>
-
         </div>
 
 
@@ -742,7 +741,6 @@ function renderizarFichaSigla(
 >
     ×
 </a>
-s
         </div>
 
 
