@@ -252,7 +252,7 @@
 
     justify-content: flex-end;
 
-    margin-bottom: 28px;
+    margin-bottom: 0;
 }
 
 
@@ -295,6 +295,7 @@
 
     justify-content: center;
 
+    transform: translateY(100%);
     border: 3px solid var(--color-primary);
 
     border-radius: 50%;
@@ -409,8 +410,7 @@
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        260px;
+        minmax(0, 1fr) 260px;
 
     gap: 18px;
 
@@ -452,12 +452,10 @@
 }
 
 
-.term-definition-block
-+ .term-definition-block {
+.term-definition-block+.term-definition-block {
 
     border-top:
-        1px solid
-        var(--color-border);
+        1px solid var(--color-border);
 }
 
 
@@ -636,7 +634,7 @@
    TEXTO INFORMACIÓN
    ========================================== */
 
-.term-info-item > div {
+.term-info-item>div {
 
     display: flex;
 
@@ -872,6 +870,7 @@
     }
 
 }
+
 /* ==========================================
    BUSCADOR DE TÉRMINOS — HEADER
 ========================================== */
@@ -1225,6 +1224,7 @@
     background: var(--color-soft-blue);
 
 }
+
 .search-suggestion__info {
     display: flex;
     flex-direction: column;
@@ -1319,6 +1319,7 @@
     background: #8630E3;
 
 }
+
 /* ==========================================
    SIN RESULTADOS
 ========================================== */
@@ -1527,6 +1528,7 @@
         width: 100%;
     }
 }
+
 /* =========================================================
    TÉRMINO — HEADER RESPONSIVE FINAL
    ========================================================= */

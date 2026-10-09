@@ -453,11 +453,11 @@
 
     box-sizing: border-box;
 
-    border: 1px solid #005DE5;
+    border: 1px solid #B5121B;
     border-radius: 6px;
 
-    background: #E6F0FF;
-    color: #005DE5;
+    background: #F7E8E8;
+    color: #B5121B;
 
     font-size: 12px;
     font-weight: 600;
@@ -474,16 +474,16 @@
 
 
 .news-card__link:hover {
-    background: #005DE5;
-    border-color: #005DE5;
+    background: #B5121B;
+    border-color: #B5121B;
     color: #FFFFFF;
     text-decoration: none;
     transform: translateY(-1px);
 }
 
 .news-card__link:active {
-    background: #00388E;
-    border-color: #00388E;
+    background: #780D15;
+    border-color: #780D15;
     color: #FFFFFF;
 
     transform: translateY(0);
@@ -585,12 +585,13 @@
 
     padding: 50px 24px 70px;
 
+
     background-image:
         linear-gradient(to bottom,
-            rgba(8, 20, 48, 0.88) 0%,
-            rgba(8, 30, 65, 0.50) 45%,
-            rgba(8, 20, 48, 0.82) 100%),
-        url("../assets/images/general/fondo-home.jpg");
+            rgba(120, 13, 21, 0.55) 0%,
+            rgba(120, 13, 21, 0.25) 45%,
+            rgba(8, 0, 0, 0.65) 100%),
+        url("../assets/images/general/fondo-home-rojo.png");
 
     background-position: center center;
 
@@ -612,11 +613,13 @@
 
     display: block;
 
+
     background: linear-gradient(to bottom,
-            rgba(7, 18, 48, 0.82) 0%,
-            rgba(7, 25, 58, 0.58) 38%,
-            rgba(7, 30, 65, 0.28) 70%,
-            rgba(7, 30, 65, 0.08) 100%);
+            rgba(120, 13, 21, 0.55) 0%,
+            rgba(120, 13, 21, 0.35) 38%,
+            rgba(120, 13, 21, 0.18) 70%,
+            rgba(8, 0, 0, 0.08) 100%);
+
 
     z-index: 1;
 
@@ -982,7 +985,7 @@
 
 .home-search-suggestion:hover {
 
-    background: #f5f8ff;
+    background: #F7E8E8;
 
 }
 
@@ -1281,7 +1284,7 @@
 
 .home-level-option:focus-visible {
 
-    outline: 3px solid rgba(0, 93, 229, 0.35);
+    outline: 3px solid rgba(181, 18, 27, 0.35);
 
     outline-offset: 3px;
 
@@ -1395,12 +1398,16 @@
        IMAGEN DE FONDO
     ====================================== */
 
+
+
     background-image:
         linear-gradient(to bottom,
-            rgba(8, 20, 48, 0.88) 0%,
-            rgba(8, 30, 65, 0.50) 45%,
-            rgba(8, 20, 48, 0.82) 100%),
-        url("../assets/images/general/fondo-home.jpg");
+            rgba(120, 13, 21, 0.45) 0%,
+            rgba(120, 13, 21, 0.20) 45%,
+            rgba(8, 0, 0, 0.55) 100%),
+        url("../assets/images/general/fondo-home-rojo.png");
+
+
 
     background-position: center center;
 
@@ -1753,7 +1760,7 @@
 
     background: #FFFFFF;
 
-    color: #191E3A;
+    color: #780D15;
 
     text-align: left;
 
@@ -1780,7 +1787,7 @@
 
 .home-search__suggestion:hover {
 
-    background: #E6F0FF;
+    background: #F7E8E8;
 
 }
 
@@ -1814,7 +1821,7 @@
 
     font-weight: 700;
 
-    color: #191E3A;
+    color: #780D15;
 
 }
 
@@ -1944,7 +1951,7 @@
 
 .home-search__suggestion.is-keyboard-selected {
 
-    background: #E6F0FF;
+    background: #F7E8E8;
 
 }
 
@@ -2718,7 +2725,7 @@
 .site-footer__main {
     position: relative;
     overflow: hidden;
-    background: #F7F9FC;
+    background: #FFFFFF;
     border-top: 1px solid #CECECE;
 }
 
@@ -2797,7 +2804,7 @@
 
     margin-bottom: 20px;
 
-    background: #005DE5;
+    background: #B5121B;
 }
 
 
@@ -2808,7 +2815,7 @@
 .site-footer__brand h3 {
     margin: 0 0 8px;
 
-    color: #191E3A;
+    color: #780D15;
 
     font-size: 18px;
     font-weight: 700;
@@ -2822,7 +2829,7 @@
 
     margin: 0;
 
-    color: #667085;
+    color: #666666;
 
     font-size: 15px;
     font-weight: 400;
@@ -2845,7 +2852,7 @@
 .site-footer__column h4 {
     margin: 0;
 
-    color: #191E3A;
+    color: #780D15;
 
     font-size: 16px;
     font-weight: 700;
@@ -2864,7 +2871,7 @@
     margin-top: 20px;
     margin-bottom: 24px;
 
-    background: #005DE5;
+    background: #B5121B;
 }
 
 
@@ -2875,7 +2882,7 @@
 
     margin-bottom: 12px;
 
-    color: #5F6B82;
+    color: #666666;
 
     font-size: 14px;
     font-weight: 400;
@@ -2887,7 +2894,7 @@
 
 
 .site-footer__column a:hover {
-    color: #005DE5;
+    color: #B5121B;
     transform: translateX(4px);
 }
 
@@ -2937,7 +2944,7 @@
 
     width: 100%;
 
-    background: #191E3A;
+    background: #780D15;
 
     color: #FFFFFF;
 }
@@ -2977,7 +2984,7 @@
 
 
 .site-footer__bottom-right {
-    color: #C7CCDA;
+    color: #FFFFFF;
     text-align: right;
 }
 
@@ -3626,6 +3633,7 @@
     }
 
 }
+
 /* =========================================================
    HEADER — IGUALAR NAVEGACIÓN EN TODAS LAS PÁGINAS
    ========================================================= */
@@ -3658,6 +3666,7 @@
     }
 
 }
+
 /* =========================================================
    HEADER — CATÁLOGO
    MISMA ESTRUCTURA QUE INICIO
@@ -3710,6 +3719,7 @@
 .site-header:not(.term-site-header):not(.news-site-header) .main-nav a {
     white-space: nowrap;
 }
+
 /* =========================================================
    HEADER MÓVIL — ESTRUCTURA ÚNICA PARA TODO EL SITIO
    Referencia: header de Noticias
@@ -3878,6 +3888,7 @@
         padding-right: 10px;
     }
 }
+
 /* =========================================================
    HEADER — BUSCADOR DEBAJO DE LA NAVEGACIÓN
 ========================================================= */
@@ -3911,6 +3922,7 @@
         min-width: 0;
     }
 }
+
 /* =========================================================
    HEADER — MISMA NAVEGACIÓN EN TODAS LAS PÁGINAS
    Inicio / Categorías / Noticias

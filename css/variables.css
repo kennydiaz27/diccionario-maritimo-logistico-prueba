@@ -4,21 +4,21 @@
        COLORES PRINCIPALES
     ========================================= */
 
-    --color-primary: #005DE5;
-    --color-primary-hover: #004BBB;
-    --color-primary-active: #00388E;
+    --color-primary: #B5121B;
+    --color-primary-hover: #930F17;
+    --color-primary-active: #780D15;
 
-    --color-dark: #191E3A;
+    --color-dark: #780D15;
 
-    --color-background: #F2F2F2;
+    --color-background: #FFFFFF;
 
     --color-white: #FFFFFF;
 
-    --color-border: #CECECE;
+    --color-border: #E2C7C9;
 
-    --color-soft-blue: #E6F0FF;
+    --color-soft-blue: #F7E8E8;
 
-    --color-text: #191E3A;
+    --color-text: #641116;
     --color-text-secondary: #666666;
 
 
@@ -70,7 +70,7 @@
     ========================================= */
 
     --shadow-card:
-        0 4px 12px rgba(25, 30, 58, 0.05);
+        0 4px 12px rgba(120, 13, 21, 0.08);
 
     --shadow-elevated:
         0 12px 32px rgba(0, 0, 0, 0.15);
